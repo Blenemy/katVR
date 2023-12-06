@@ -1,0 +1,27 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.custom-input {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__label {
+    color: $dark-grey;
+    @include typography(400, 14px, 150%);
+  }
+
+  &__field {
+    width: 100%;
+    border-bottom: 1px solid $dark-grey;
+    color: $white;
+  }
+}
+
+.error-input {
+  border-color: #860404;
+}
+
+.error-label {
+  color: #860404;
+}
