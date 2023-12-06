@@ -1,0 +1,7 @@
+@import '../../styles/mixins.scss';
+
+.button {
+  min-width: 200px;
+  padding: 10px;
+  @include typography(500, 16px, 130%);
+}
