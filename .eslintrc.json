@@ -1,3 +1,27 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "standard",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "next/core-web-vitals"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "space-before-function-paren": "off",
+    "@typescript-eslint/no-explicit-any": "off"
+  }
 }
