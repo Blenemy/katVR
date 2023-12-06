@@ -15,7 +15,7 @@ interface CustomInputProps extends HTMLAttributes<HTMLInputElement> {
 
 export const CustomInput: React.FC<CustomInputProps> = ({
   type,
-  error = '2',
+  error = '',
   value,
   onChangeFunc,
   name,
