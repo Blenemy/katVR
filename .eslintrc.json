@@ -1,9 +1,7 @@
 {
   "extends": [
-    "standard",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "prettier",
     "next/core-web-vitals"
   ],
   "parser": "@typescript-eslint/parser",
