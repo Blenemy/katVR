@@ -1,0 +1,66 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.header {
+  min-height: 100vh;
+  background: $gradient-color;
+  color: $white;
+
+  &__content {
+    padding: 20px;
+  }
+
+  &__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  &__logo {
+    height: 100%;
+  }
+
+  &__img {
+    height: 18px;
+  }
+
+  &__hero {
+  }
+
+  &__main-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    @include typography(900, 26px, 34px);
+    margin-bottom: 17px;
+  }
+
+  &__subtitle {
+    @include typography(500, 16px, 24px);
+    color: $text-color;
+    margin-bottom: 8px;
+  }
+
+  &__price {
+    text-align: center;
+    @include typography(500, 18px, 22px);
+    margin-bottom: 20px;
+  }
+
+  &__video-play {
+    margin-bottom: 32px;
+  }
+
+  &__button {
+    width: 100%;
+    background-color: $contrast-blue;
+  }
+}
+
+.hero {
+  &__img {
+  }
+}

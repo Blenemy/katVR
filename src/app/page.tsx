@@ -1,3 +1,9 @@
+import { Header } from './components/Header/Header'
+
 export default function Page() {
-  return <main>Hello next js </main>
+  return (
+    <main>
+      <Header />
+    </main>
+  )
 }
