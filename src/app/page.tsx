@@ -1,3 +1,3 @@
-export default function Home() {
-  return <main></main>
+export default function Page() {
+  return <main>Hello next js </main>
 }
