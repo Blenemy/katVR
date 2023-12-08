@@ -1,5 +1,7 @@
 import cn from 'classnames'
+import cross from '../../../../public/icons/cross-white.svg'
 import './Navbar.scss'
+import Image from 'next/image'
 
 interface NavbarProps {
   handleOpenNavbar: () => void
@@ -19,38 +21,49 @@ export const Navbar: React.FC<NavbarProps> = ({
     >
       <div className="container">
         <div className="menu__content">
+          <Image
+            src={cross}
+            alt="burgerImage"
+            className="menu__close"
+            onClick={handleOpenNavbar}
+          />
           <ul className="menu__list">
             <li className="menu__item">
               <a href="#" className="menu__link">
-                Basket
+                About
               </a>
             </li>
             <li className="menu__item">
               <a href="#features" className="menu__link">
-                Features
+                Tech
               </a>
             </li>
             <li className="menu__item">
               <a href="#materials" className="menu__link">
-                Materials
+                Benefits
               </a>
             </li>
             <li className="menu__item">
               <a href="#meet-us" className="menu__link">
-                About us
+                Contact
               </a>
             </li>
             <li className="menu__item">
               <a href="#footer" className="menu__link">
-                Message us
+                Language
+              </a>
+            </li>
+            <li className="menu__item">
+              <a href="#footer" className="menu__link">
+                FAQ
+              </a>
+            </li>
+            <li className="menu__item">
+              <a href="#footer" className="menu__link">
+                Help
               </a>
             </li>
           </ul>
-          <a href="#" className="menu__close close-menu">
-            <div className="close-menu__text" onClick={handleOpenNavbar}>
-              Close
-            </div>
-          </a>
         </div>
       </div>
     </nav>
