@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.menu {
+  &__content {
+    position: relative;
+    height: 100vh;
+    padding: 20px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
