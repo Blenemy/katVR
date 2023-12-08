@@ -9,14 +9,16 @@ import { Button } from '../Button/Button'
 import { TextDecorator } from '../TextDecorator/TextDecorator'
 import './Header.scss'
 import { PlayVideo } from '../PlayVideo/PlayVideo'
-import { useState } from 'react'
 import { Navbar } from '../Navbar/Navbar'
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
+import { toggleNavbar } from '@/lib/features/navbarSlice'
 
 export const Header = () => {
-  const [isOpened, setIsOpened] = useState(false)
+  const dispatch = useAppDispatch()
+  const { isOpened } = useAppSelector((state) => state.navbar)
 
   const handleOpenNavbar = () => {
-    setIsOpened((prev) => !prev)
+    dispatch(toggleNavbar(!isOpened))
   }
 
   return (
