@@ -1,7 +1,8 @@
 import cn from 'classnames'
+import Image from 'next/image'
 import cross from '../../../../public/icons/cross-white.svg'
 import './Navbar.scss'
-import Image from 'next/image'
+import { menuItems } from './navLinks'
 
 interface NavbarProps {
   handleOpenNavbar: () => void
@@ -14,9 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   return (
     <nav
-      className={cn('page__menu menu', {
-        'menu-active': isOpened
-      })}
+      className={cn('page__menu menu', { 'menu-active': isOpened })}
       id="menu"
     >
       <div className="container">
@@ -28,41 +27,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={handleOpenNavbar}
           />
           <ul className="menu__list">
-            <li className="menu__item">
-              <a href="#" className="menu__link">
-                About
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href="#features" className="menu__link">
-                Tech
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href="#materials" className="menu__link">
-                Benefits
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href="#meet-us" className="menu__link">
-                Contact
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href="#footer" className="menu__link">
-                Language
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href="#footer" className="menu__link">
-                FAQ
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href="#footer" className="menu__link">
-                Help
-              </a>
-            </li>
+            {menuItems.map((item, index) => (
+              <li key={index} className="menu__item">
+                <a href={item.href} className="menu__link">
+                  {item.text}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
