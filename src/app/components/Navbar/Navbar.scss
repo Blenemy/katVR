@@ -27,3 +27,12 @@
     @include typography(500, 21px, 27px);
   }
 }
+
+@include onTablet {
+  .menu {
+    &__close {
+      height: 29px;
+      width: 32px;
+    }
+  }
+}

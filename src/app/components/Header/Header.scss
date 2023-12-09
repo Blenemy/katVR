@@ -2,7 +2,7 @@
 @import '../../styles/variables.scss';
 
 .header {
-  min-height: 100vh;
+  min-height: 100svh;
   background: $gradient-color;
   color: $white;
 
@@ -68,6 +68,18 @@
   .header {
     &__navbar {
       margin-bottom: 55px;
+    }
+
+    &__img {
+      height: 29px;
+    }
+
+    &__subtitle {
+      margin-bottom: 14px;
+    }
+
+    &__price {
+      text-align: left;
     }
   }
 

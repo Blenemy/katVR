@@ -11,11 +11,13 @@ import burgerImage from '../../../../public/icons/burger.svg'
 import crossImage from '../../../../public/icons/cross-white.svg'
 import mainImage_2x from './images/header-main_2x.png'
 import './Header.scss'
+import { useMedia } from '@/app/hooks/useMedia'
 
 export const Header = () => {
   const dispatch = useAppDispatch()
   const { isOpened } = useAppSelector((state) => state.navbar)
   const { t } = useTranslation()
+  const { isMobile } = useMedia()
 
   const handleOpenNavbar = () => {
     dispatch(toggleNavbar(!isOpened))
@@ -59,11 +61,13 @@ export const Header = () => {
               </p>
               <p className="header__price">{t('header.price', '1200$')}</p>
               <PlayVideo classname="header__video-play" />
-              <Button
-                type="button"
-                text={t('header.button', 'Buy Now')}
-                classname="header__button"
-              />
+              {isMobile && (
+                <Button
+                  type="button"
+                  text={t('header.button', 'Buy Now')}
+                  classname="header__button"
+                />
+              )}
             </article>
           </section>
         </div>
