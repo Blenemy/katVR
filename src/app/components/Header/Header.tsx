@@ -1,16 +1,16 @@
 import Image from 'next/image'
-import logo from '../../../../public/icons/Logo.svg'
-import burgerImage from '../../../../public/icons/burger.svg'
-import crossImage from '../../../../public/icons/cross-white.svg'
-import mainImage from './images/header-main.png'
 import { Button } from '../Button/Button'
 import { TextDecorator } from '../TextDecorator/TextDecorator'
-import './Header.scss'
 import { PlayVideo } from '../PlayVideo/PlayVideo'
 import { Navbar } from '../Navbar/Navbar'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { toggleNavbar } from '@/lib/features/navbarSlice'
 import { useTranslation } from 'react-i18next'
+import logo from '../../../../public/icons/Logo.svg'
+import burgerImage from '../../../../public/icons/burger.svg'
+import crossImage from '../../../../public/icons/cross-white.svg'
+import mainImage_2x from './images/header-main_2x.png'
+import './Header.scss'
 
 export const Header = () => {
   const dispatch = useAppDispatch()
@@ -38,29 +38,33 @@ export const Header = () => {
               />
             </div>
           </header>
-          <section className="header__hero hero">
-            <Image src={mainImage} alt="hero" className="hero__img" />
-          </section>
-          <section className="header__main-content">
-            <h1 className="header__title">
-              {t('header.title', 'THE NEW START OF VR LOCOMOTION')}{' '}
-              <TextDecorator>
-                {t('header.textDecorator', 'VR LOCOMOTION')}
-              </TextDecorator>
-            </h1>
-            <p className="header__subtitle">
-              {t(
-                'header.subtitle',
-                'Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!'
-              )}
-            </p>
-            <p className="header__price">{t('header.price', '1200$')}</p>
-            <PlayVideo classname="header__video-play" />
-            <Button
-              type="button"
-              text={t('header.button', 'Buy Now')}
-              classname="header__button"
-            />
+          <section className="header__main-block main-block-header">
+            <article className="header__hero main-block-header__article main-block-header__article_image">
+              <div className="_img-container header__hero hero">
+                <Image src={mainImage_2x} alt="hero" className="hero__img" />
+              </div>
+            </article>
+            <article className="header__main-content main-block-header__article main-block-header__article_content">
+              <h1 className="header__title">
+                {t('header.title', 'THE NEW START OF VR LOCOMOTION')}{' '}
+                <TextDecorator>
+                  {t('header.textDecorator', 'VR LOCOMOTION')}
+                </TextDecorator>
+              </h1>
+              <p className="header__subtitle">
+                {t(
+                  'header.subtitle',
+                  'Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!'
+                )}
+              </p>
+              <p className="header__price">{t('header.price', '1200$')}</p>
+              <PlayVideo classname="header__video-play" />
+              <Button
+                type="button"
+                text={t('header.button', 'Buy Now')}
+                classname="header__button"
+              />
+            </article>
           </section>
         </div>
       </section>

@@ -25,9 +25,6 @@
     height: 18px;
   }
 
-  &__hero {
-  }
-
   &__main-content {
     display: flex;
     flex-direction: column;
@@ -52,6 +49,9 @@
 
   &__video-play {
     margin-bottom: 32px;
+    width: 248px;
+    height: 69px;
+    align-self: center;
   }
 
   &__button {
@@ -61,6 +61,27 @@
 }
 
 .hero {
-  &__img {
+  padding-bottom: 50%;
+}
+
+@include onTablet {
+  .header {
+    &__navbar {
+      margin-bottom: 55px;
+    }
+  }
+
+  .main-block-header {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    &__article_image {
+      flex: 1 1 60%;
+    }
+
+    &__article_content {
+      flex: 1 1 40%;
+    }
   }
 }
