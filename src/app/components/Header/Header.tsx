@@ -12,12 +12,13 @@ import crossImage from '../../../../public/icons/cross-white.svg'
 import mainImage_2x from './images/header-main_2x.png'
 import './Header.scss'
 import { useMedia } from '@/app/hooks/useMedia'
+import { ControlBar } from './ControlBar/ControlBar'
 
 export const Header = () => {
   const dispatch = useAppDispatch()
   const { isOpened } = useAppSelector((state) => state.navbar)
   const { t } = useTranslation()
-  const { isMobile } = useMedia()
+  const { isMobile, isDesktop } = useMedia()
 
   const handleOpenNavbar = () => {
     dispatch(toggleNavbar(!isOpened))
@@ -70,6 +71,7 @@ export const Header = () => {
               )}
             </article>
           </section>
+          {isDesktop && <ControlBar />}
         </div>
       </section>
       <Navbar handleOpenNavbar={handleOpenNavbar} isOpened={isOpened} />

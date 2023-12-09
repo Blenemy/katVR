@@ -97,3 +97,32 @@
     }
   }
 }
+
+@include onDesktop {
+  .header {
+    &__control-bar {
+    }
+  }
+  .control-bar {
+    &__left {
+    }
+
+    &__FAQ {
+    }
+
+    &__help {
+    }
+
+    &__center {
+    }
+
+    &__right {
+    }
+
+    &__previous {
+    }
+
+    &__next {
+    }
+  }
+}
