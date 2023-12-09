@@ -1,4 +1,7 @@
+'use client'
+
 import { Header } from './components/Header/Header'
+import './i18next/i18n'
 import './styles/page.scss'
 
 export default function Page() {
