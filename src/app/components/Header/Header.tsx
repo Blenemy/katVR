@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import logo from '../../../../public/icons/Logo.svg'
 import burgerImage from '../../../../public/icons/burger.svg'
@@ -12,10 +10,12 @@ import { PlayVideo } from '../PlayVideo/PlayVideo'
 import { Navbar } from '../Navbar/Navbar'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { toggleNavbar } from '@/lib/features/navbarSlice'
+import { useTranslation } from 'react-i18next'
 
 export const Header = () => {
   const dispatch = useAppDispatch()
   const { isOpened } = useAppSelector((state) => state.navbar)
+  const { t } = useTranslation()
 
   const handleOpenNavbar = () => {
     dispatch(toggleNavbar(!isOpened))
@@ -43,15 +43,24 @@ export const Header = () => {
           </section>
           <section className="header__main-content">
             <h1 className="header__title">
-              THE NEW START OF <TextDecorator>VR LOCOMOTION</TextDecorator>
+              {t('header.title', 'THE NEW START OF VR LOCOMOTION')}{' '}
+              <TextDecorator>
+                {t('header.textDecorator', 'VR LOCOMOTION')}
+              </TextDecorator>
             </h1>
             <p className="header__subtitle">
-              Discover the most comprehensive VR Locomotion system, and unlock
-              infinite motion in any games on any platforms!
+              {t(
+                'header.subtitle',
+                'Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!'
+              )}
             </p>
-            <p className="header__price">1200$</p>
+            <p className="header__price">{t('header.price', '1200$')}</p>
             <PlayVideo classname="header__video-play" />
-            <Button type="button" text="Buy Now" classname="header__button" />
+            <Button
+              type="button"
+              text={t('header.button', 'Buy Now')}
+              classname="header__button"
+            />
           </section>
         </div>
       </section>

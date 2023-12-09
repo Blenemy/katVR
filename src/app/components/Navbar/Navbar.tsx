@@ -3,6 +3,7 @@ import Image from 'next/image'
 import cross from '../../../../public/icons/cross-white.svg'
 import './Navbar.scss'
 import { menuItems } from './navLinks'
+// import { useTranslation } from 'react-i18next'
 
 interface NavbarProps {
   handleOpenNavbar: () => void
@@ -13,6 +14,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   handleOpenNavbar,
   isOpened
 }) => {
+  // const { t } = useTranslation()
+
   return (
     <nav
       className={cn('page__menu menu', { 'menu-active': isOpened })}
