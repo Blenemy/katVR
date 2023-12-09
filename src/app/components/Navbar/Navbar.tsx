@@ -3,7 +3,7 @@ import Image from 'next/image'
 import cross from '../../../../public/icons/cross-white.svg'
 import './Navbar.scss'
 import { menuItems } from './navLinks'
-// import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 interface NavbarProps {
   handleOpenNavbar: () => void
@@ -14,7 +14,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   handleOpenNavbar,
   isOpened
 }) => {
-  // const { t } = useTranslation()
+  const { t } = useTranslation()
 
   return (
     <nav
@@ -33,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             {menuItems.map((item, index) => (
               <li key={index} className="menu__item">
                 <a href={item.href} className="menu__link">
-                  {item.text}
+                  {t(`navbar.${item.i18nKey}`)}
                 </a>
               </li>
             ))}
