@@ -11,14 +11,13 @@ import burgerImage from '../../../../public/icons/burger.svg'
 import crossImage from '../../../../public/icons/cross-white.svg'
 import mainImage_2x from './images/header-main_2x.png'
 import './Header.scss'
-import { useMedia } from '@/app/hooks/useMedia'
 import { ControlBar } from './ControlBar/ControlBar'
+import { LanguageDropdown } from './LanguageDropdown/LanguageDropdown'
 
 export const Header = () => {
   const dispatch = useAppDispatch()
   const { isOpened } = useAppSelector((state) => state.navbar)
   const { t } = useTranslation()
-  const { isMobile, isDesktop } = useMedia()
 
   const handleOpenNavbar = () => {
     dispatch(toggleNavbar(!isOpened))
@@ -29,16 +28,21 @@ export const Header = () => {
       <section className="header">
         <div className="header__content">
           <header className="header__navbar">
-            <div className="header__logo">
-              <Image src={logo} alt="katVR_logo" className="header__img" />
+            <div className="header__left">
+              <div className="header__logo">
+                <Image src={logo} alt="katVR_logo" className="header__img" />
+              </div>
+              <LanguageDropdown />
             </div>
-            <div className="header__logo">
-              <Image
-                src={isOpened ? crossImage : burgerImage}
-                alt="burgerImage"
-                className="header__img"
-                onClick={handleOpenNavbar}
-              />
+            <div className="header__right">
+              <div className="header__logo header__logo_navbar">
+                <Image
+                  src={isOpened ? crossImage : burgerImage}
+                  alt="burgerImage"
+                  className="header__img"
+                  onClick={handleOpenNavbar}
+                />
+              </div>
             </div>
           </header>
           <section className="header__main-block main-block-header">
@@ -62,16 +66,15 @@ export const Header = () => {
               </p>
               <p className="header__price">{t('header.price', '1200$')}</p>
               <PlayVideo classname="header__video-play" />
-              {isMobile && (
-                <Button
-                  type="button"
-                  text={t('header.button', 'Buy Now')}
-                  classname="header__button"
-                />
-              )}
+
+              <Button
+                type="button"
+                text={t('header.button', 'Buy Now')}
+                classname="header__button header__button_down"
+              />
             </article>
           </section>
-          {isDesktop && <ControlBar />}
+          <ControlBar />
         </div>
       </section>
       <Navbar handleOpenNavbar={handleOpenNavbar} isOpened={isOpened} />

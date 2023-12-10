@@ -17,6 +17,11 @@
     margin-bottom: 14px;
   }
 
+  &__left {
+    display: flex;
+    gap: 34px;
+  }
+
   &__logo {
     height: 100%;
   }
@@ -81,6 +86,10 @@
     &__price {
       text-align: left;
     }
+
+    &__button_down {
+      display: none;
+    }
   }
 
   .main-block-header {
@@ -100,6 +109,12 @@
 
 @include onDesktop {
   .header {
+    &__title {
+    }
+    &__logo_navbar {
+      display: none;
+    }
+
     &__control-bar {
     }
   }
