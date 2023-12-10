@@ -1,32 +1,51 @@
 @import '../../../styles//mixins.scss';
+@import '../../../styles//variables.scss';
 
 .control-bar {
   display: none;
-
-  &__left {
-  }
-
-  &__FAQ {
-  }
-
-  &__help {
-  }
-
-  &__center {
-  }
-
-  &__right {
-  }
-
-  &__previous {
-  }
-
-  &__next {
-  }
 }
 
 @include onDesktop {
   .control-bar {
     display: flex;
+    justify-content: space-between;
+
+    &__left {
+      display: flex;
+      gap: 40px;
+    }
+
+    &__FAQ {
+    }
+
+    &__help {
+    }
+
+    &__center {
+      display: flex;
+      position: relative;
+      color: $contrast-blue;
+
+      &::after {
+        content: url('../../../../../public/icons/more-arrow.svg');
+        width: 9px;
+        height: 6px;
+        position: absolute;
+        top: 15px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+
+    &__right {
+      display: flex;
+      gap: 40px;
+    }
+
+    &__previous {
+    }
+
+    &__next {
+    }
   }
 }
