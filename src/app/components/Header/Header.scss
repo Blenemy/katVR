@@ -22,6 +22,10 @@
     gap: 34px;
   }
 
+  &__navigation-line {
+    display: none;
+  }
+
   &__logo {
     height: 100%;
   }
@@ -98,46 +102,76 @@
     align-items: center;
 
     &__article_image {
-      flex: 1 1 60%;
+      flex: 1 1 55%;
     }
 
     &__article_content {
-      flex: 1 1 40%;
+      flex: 1 1 45%;
     }
   }
 }
 
 @include onDesktop {
   .header {
-    &__title {
-    }
-    &__logo_navbar {
-      display: none;
+    &__content {
+      padding: 64px 110px;
     }
 
-    &__control-bar {
-    }
-  }
-  .control-bar {
-    &__left {
-    }
-
-    &__FAQ {
-    }
-
-    &__help {
-    }
-
-    &__center {
+    &__navbar {
+      margin-bottom: 110px;
     }
 
     &__right {
+      display: flex;
     }
 
-    &__previous {
+    &__navigation-line {
+      display: flex;
+      align-items: center;
+      gap: 36px;
     }
 
-    &__next {
+    &__list {
+      display: flex;
+      gap: 36px;
     }
+
+    &__item {
+      white-space: nowrap;
+    }
+
+    &__button_nav {
+      display: block;
+      padding: 14px 10px;
+    }
+
+    &__title {
+      @include typography(900, 46px, 130%);
+      margin-bottom: 19px;
+    }
+
+    &__text-wrapper {
+      padding-left: 50px;
+      max-width: 370px;
+    }
+
+    &__subtitle {
+      @include typography(500, 16px, 24px);
+      color: $text-color;
+      margin-bottom: 5px;
+    }
+
+    &__video-play {
+      padding-left: 50px;
+      align-self: start;
+    }
+
+    &__logo_navbar {
+      display: none;
+    }
+  }
+
+  .main-block-header {
+    margin-bottom: 90px;
   }
 }
