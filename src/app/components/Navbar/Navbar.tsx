@@ -1,9 +1,12 @@
 import cn from 'classnames'
 import Image from 'next/image'
-import cross from '../../../../public/icons/cross-white.svg'
-import './Navbar.scss'
-import { menuItems } from './navLinks'
 import { useTranslation } from 'react-i18next'
+
+import { menuItems } from './navLinks'
+
+import cross from '../../../../public/icons/cross-white.svg'
+
+import './Navbar.scss'
 
 interface NavbarProps {
   handleOpenNavbar: () => void
