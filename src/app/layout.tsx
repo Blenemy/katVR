@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import StoreProvider from './StoreProvider'
 import './styles/_reset.scss'
-import { Body } from './Body'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'katVR',
@@ -16,7 +18,7 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang="en">
-        <Body>{children}</Body>
+        <body className={inter.className}>{children}</body>
       </html>
     </StoreProvider>
   )

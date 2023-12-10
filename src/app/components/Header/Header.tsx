@@ -17,6 +17,7 @@ import crossImage from '../../../../public/icons/cross-white.svg'
 import mainImage_2x from './images/header-main_2x.png'
 
 import './Header.scss'
+import { useEffect } from 'react'
 
 export const Header = () => {
   const dispatch = useAppDispatch()
@@ -26,6 +27,14 @@ export const Header = () => {
   const handleOpenNavbar = () => {
     dispatch(toggleNavbar(!isOpened))
   }
+
+  useEffect(() => {
+    if (isOpened) {
+      document.body.classList.add('page__body--with-menu')
+    } else {
+      document.body.classList.remove('page__body--with-menu')
+    }
+  }, [isOpened])
 
   return (
     <>
