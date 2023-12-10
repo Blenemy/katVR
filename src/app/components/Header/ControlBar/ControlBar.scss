@@ -1,0 +1,32 @@
+@import '../../../styles//mixins.scss';
+
+.control-bar {
+  display: none;
+
+  &__left {
+  }
+
+  &__FAQ {
+  }
+
+  &__help {
+  }
+
+  &__center {
+  }
+
+  &__right {
+  }
+
+  &__previous {
+  }
+
+  &__next {
+  }
+}
+
+@include onDesktop {
+  .control-bar {
+    display: flex;
+  }
+}
