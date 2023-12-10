@@ -1,0 +1,17 @@
+@import '../../../styles//mixins.scss';
+
+.language-dropdown {
+  display: none;
+
+  &__option {
+  }
+}
+
+@include onDesktop {
+  .language-dropdown {
+    display: block;
+
+    &__option {
+    }
+  }
+}
