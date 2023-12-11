@@ -1,7 +1,12 @@
-export default function ProductsPage({ params }: any) {
-  const { lang } = params
+// import './styles/page.scss'
+// import './styles/globals.scss'
 
-  console.log(lang)
+import React from 'react'
+// import './styles/page.scss'
+// import './styles/globals.scss'
 
-  return <div>{lang}</div>
+const Page: React.FC<{ params: { lang: string } }> = ({ params }) => {
+  return <div>Hello {params.lang}</div>
 }
+
+export default Page
