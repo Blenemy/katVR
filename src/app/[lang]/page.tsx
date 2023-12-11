@@ -1,7 +1,6 @@
 // import './styles/page.scss'
 // import './styles/globals.scss'
 
-import React from 'react'
 // import './styles/page.scss'
 // import './styles/globals.scss'
 
