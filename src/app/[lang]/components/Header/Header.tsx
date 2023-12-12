@@ -3,29 +3,23 @@ import Image from 'next/image'
 import { Button } from '../Button/Button'
 import { TextDecorator } from '../TextDecorator/TextDecorator'
 import { PlayVideo } from '../PlayVideo/PlayVideo'
-// import { Navbar } from '../Navbar/Navbar'
 import { ControlBar } from './ControlBar/ControlBar'
 import { LanguageDropdown } from './LanguageDropdown/LanguageDropdown'
 import { Container } from '../Container/Container'
 
 import logo from '../../../../../public/icons/Logo.svg'
-import burgerImage from '../../../../../public/icons/burger.svg'
-// import crossImage from '../../../../../public/icons/cross-white.svg'
 import mainImage_2x from './images/header-main_2x.png'
 
 import './Header.scss'
 import { BurgerIcon } from './BurgerIcon/BurgerIcon'
+import { Navbar } from '../Navbar/Navbar'
+import { Translations } from '../../types/Translations'
 
 interface HeaderProps {
-  t: any
+  t: Translations
 }
 
 export const Header: React.FC<HeaderProps> = ({ t }) => {
-  const handleOpenNavbar = async () => {
-    'use server'
-    console.log(123)
-  }
-
   return (
     <>
       <header className="header">
@@ -39,10 +33,7 @@ export const Header: React.FC<HeaderProps> = ({ t }) => {
                 <LanguageDropdown />
               </div>
               <div className="header__right">
-                <BurgerIcon
-                  src={burgerImage}
-                  handleOpenNavbar={handleOpenNavbar}
-                />
+                <BurgerIcon />
                 <div className="header__navigation-line">
                   <ul className="header__list">
                     <li className="header__item">
@@ -94,7 +85,7 @@ export const Header: React.FC<HeaderProps> = ({ t }) => {
           </div>
         </Container>
       </header>
-      {/* <Navbar handleOpenNavbar={handleOpenNavbar} isOpened={isOpened} /> */}
+      <Navbar t={t} />
     </>
   )
 }
