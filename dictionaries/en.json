@@ -1,5 +1,18 @@
 {
   "header": {
-    "title": "Hello World"
+    "title": "THE NEW START OF",
+    "textDecorator": "VR LOCOMOTION",
+    "subtitle": "Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!",
+    "price": "1200$",
+    "button": "Buy Now"
+  },
+  "navbar": {
+    "about": "About",
+    "tech": "Tech",
+    "benefits": "Benefits",
+    "contact": "Contact",
+    "language": "Language",
+    "faq": "FAQ",
+    "help": "Help"
   }
 }

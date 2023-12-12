@@ -1,5 +1,18 @@
 {
   "header": {
-    "title": "Halo world german"
+    "title": "DER NEUE BEGINN VON",
+    "textDecorator": "VR-FORTBEWEGUNG",
+    "subtitle": "Entdecken Sie das umfassendste VR-Fortbewegungssystem und erschließen Sie unendliche Bewegungsmöglichkeiten in allen Spielen auf allen Plattformen!",
+    "price": "1200$",
+    "button": "Jetzt kaufen"
+  },
+  "navbar": {
+    "about": "Über uns",
+    "tech": "Technik",
+    "benefits": "Vorteile",
+    "contact": "Kontakt",
+    "language": "Sprache",
+    "faq": "FAQ",
+    "help": "Hilfe"
   }
 }
