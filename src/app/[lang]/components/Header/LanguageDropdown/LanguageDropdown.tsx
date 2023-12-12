@@ -1,17 +1,17 @@
 'use client'
 
 import { ChangeEvent, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 import './LanguageDropdown.scss'
+import { useParams, useRouter } from 'next/navigation'
 
 export const LanguageDropdown = () => {
-  const { i18n } = useTranslation()
-  const [selectedOption, setSelectedOption] = useState('En')
+  const router = useRouter()
+  const params = useParams()
+  const [selectedOption, setSelectedOption] = useState(params.lang)
 
   const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    // setSelectedOption(e.target.value)
-    // i18n.changeLanguage(e.target.value)
-    // console.log(i18n)
+    setSelectedOption(e.target.value)
+    router.push(`/${e.target.value}`)
   }
 
   return (
