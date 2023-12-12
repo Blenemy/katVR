@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import { menuItems } from './navLinks'
 
-import cross from '../../../../public/icons/cross-white.svg'
+import cross from '../../../../../public/icons/cross-white.svg'
 
 import './Navbar.scss'
 

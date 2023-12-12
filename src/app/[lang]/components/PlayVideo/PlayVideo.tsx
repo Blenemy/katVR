@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import playVideo from '../../../../public/icons/play-video-active.svg'
+import playVideo from '../../../../../public/icons/play-video-active.svg'
 import cn from 'classnames'
 
 interface PlayVideoProps {

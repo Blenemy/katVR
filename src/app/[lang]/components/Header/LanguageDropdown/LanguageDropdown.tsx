@@ -9,9 +9,9 @@ export const LanguageDropdown = () => {
   const [selectedOption, setSelectedOption] = useState('En')
 
   const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(e.target.value)
-    i18n.changeLanguage(e.target.value)
-    console.log(i18n)
+    // setSelectedOption(e.target.value)
+    // i18n.changeLanguage(e.target.value)
+    // console.log(i18n)
   }
 
   return (
