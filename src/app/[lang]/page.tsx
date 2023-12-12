@@ -1,11 +1,16 @@
-// import './styles/page.scss'
-// import './styles/globals.scss'
+import './styles/page.scss'
+import './styles/globals.scss'
+import { Header } from './components/Header/Header'
+import { getDictionary } from '../getDectionaries'
 
-// import './styles/page.scss'
-// import './styles/globals.scss'
+const Page: React.FC<{ params: { lang: string } }> = async ({ params }) => {
+  const t = await getDictionary(params.lang)
 
-const Page: React.FC<{ params: { lang: string } }> = ({ params }) => {
-  return <div>Hello {params.lang}</div>
+  return (
+    <>
+      <Header t={t} />
+    </>
+  )
 }
 
 export default Page
