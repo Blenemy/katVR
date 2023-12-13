@@ -25,10 +25,14 @@
       border-bottom: 1px solid $contrast-blue;
       padding-bottom: 15px;
       cursor: pointer;
+      @include typography(500, 16px, 24px);
+      color: $text-color;
     }
 
     &__next {
       cursor: pointer;
+      @include typography(500, 16px, 24px);
+      color: $white;
     }
   }
 }
