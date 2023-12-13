@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({ t }) => {
                 />
               </article>
             </section>
-            <ControlBar />
+            <ControlBar t={t} />
           </div>
         </Container>
       </header>

@@ -16,7 +16,16 @@ interface Navbar {
   help: string
 }
 
+interface Controlbar {
+  faq: string
+  help: string
+  'more-btn': string
+  previous: string
+  next: string
+}
+
 export interface Translations {
   header: Header
   navbar: Navbar
+  'control-bar': Controlbar
 }
