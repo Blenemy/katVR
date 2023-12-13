@@ -1,4 +1,5 @@
 import './ControlBar.scss'
+import { MoreButton } from './MoreButton/MoreButton'
 
 export const ControlBar = () => {
   return (
@@ -7,7 +8,7 @@ export const ControlBar = () => {
         <p className="control-bar__FAQ">FAQ</p>
         <p className="control-bar__help">HELP</p>
       </article>
-      <article className="control-bar__center">More</article>
+      <MoreButton classes="control-bar__center" text="More" />
       <article className="control-bar__right">
         <p className="control-bar__previous">Previous</p>
         <p className="control-bar__next">Next</p>
