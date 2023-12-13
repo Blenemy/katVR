@@ -14,5 +14,12 @@
     "language": "Language",
     "faq": "FAQ",
     "help": "Help"
+  },
+  "control-bar": {
+    "faq": "FAQ",
+    "help": "Help",
+    "more-btn": "More",
+    "previous": "Previous",
+    "next": "Next"
   }
 }
