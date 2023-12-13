@@ -1,0 +1,17 @@
+@import '../../../../styles/variables.scss';
+
+.more-button {
+  display: flex;
+  position: relative;
+  color: $contrast-blue;
+
+  &::after {
+    content: url('../../../../../../../public/icons/more-arrow.svg');
+    width: 9px;
+    height: 6px;
+    position: absolute;
+    top: 15px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
