@@ -1,31 +1,52 @@
 'use client'
 
 import { ChangeEvent, useState } from 'react'
-import './LanguageDropdown.scss'
 import { useParams, useRouter } from 'next/navigation'
+import Image from 'next/image'
+
+import arrowBlue from '../../../../../../public/icons/arrow-more-blue.svg'
+import arrowWhite from '../../../../../../public/icons/arrow-more-white.svg'
+
+import './LanguageDropdown.scss'
 
 export const LanguageDropdown = () => {
   const router = useRouter()
   const params = useParams()
   const [selectedOption, setSelectedOption] = useState(params.lang)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
 
   const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(e.target.value)
-    router.push(`/${e.target.value}`)
+    const currentLnaguage = e.target.value
+
+    setSelectedOption(currentLnaguage)
+    router.push(`/${currentLnaguage}`)
+  }
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen)
   }
 
   return (
-    <select
-      value={selectedOption}
-      onChange={(e) => handleOnChange(e)}
-      className="language-dropdown"
-    >
-      <option className="language-dropdown__option" value="en">
-        En
-      </option>
-      <option className="language-dropdown__option" value="de">
-        Ge
-      </option>
-    </select>
+    <div className="language-dropdown">
+      <select
+        value={selectedOption}
+        onChange={handleOnChange}
+        onClick={toggleDropdown}
+        onBlur={() => setDropdownOpen(false)}
+        className="language-dropdown__select"
+      >
+        <option className="language-dropdown__option" value="en">
+          En
+        </option>
+        <option className="language-dropdown__option" value="de">
+          Ge
+        </option>
+      </select>
+      <Image
+        src={dropdownOpen ? arrowWhite : arrowBlue}
+        alt="arrowBlue"
+        className="language-dropdown__arrow-more"
+      />
+    </div>
   )
 }

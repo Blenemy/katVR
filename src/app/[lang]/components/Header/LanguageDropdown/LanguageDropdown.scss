@@ -1,17 +1,29 @@
 @import '../../../styles//mixins.scss';
+@import '../../../styles//variables.scss';
 
 .language-dropdown {
   display: none;
+  position: relative;
 
-  &__option {
+  &__select {
+    appearance: none;
+    background: none;
+    color: $contrast-blue;
+    @include typography(500, 16px, 21px);
+    cursor: pointer;
+  }
+
+  &__arrow-more {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    bottom: 5px;
+    right: -25px;
   }
 }
 
 @include onDesktop {
   .language-dropdown {
     display: block;
-
-    &__option {
-    }
   }
 }
