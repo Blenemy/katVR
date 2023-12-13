@@ -1,0 +1,27 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.faq {
+  &__title {
+    margin-bottom: 30px;
+  }
+}
+.tab-faq {
+  border: 1px solid $contrast-blue;
+
+  &__content {
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__title {
+  }
+
+  &__text {
+  }
+
+  &__date {
+  }
+}
