@@ -21,7 +21,9 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
   return (
     <StoreProvider>
       <html lang={params.lang || 'en'}>
-        <body className={inter.className}>{children}</body>
+        <body id="body" className={inter.className}>
+          {children}
+        </body>
       </html>
     </StoreProvider>
   )
