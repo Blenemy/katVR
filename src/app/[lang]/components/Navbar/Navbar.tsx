@@ -1,25 +1,56 @@
 'use client'
 
+import { useState } from 'react'
 import cn from 'classnames'
-import Image from 'next/image'
-
-import cross from '../../../../../public/icons/cross-white.svg'
-
 import './Navbar.scss'
 import { toggleNavbar } from '@/lib/features/navbarSlice'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { Translations } from '../../types/Translations'
+import { DefaultNavbar } from './DefaultNavbar/DefaultNavbar'
+import { LanguageNavbar } from './LanguageNavbar/LanguageNavbar'
+import { HelpNavbar } from './HelpNavbar/HelpNavbar'
 
 interface NavbarProps {
   t: Translations
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ t }) => {
-  const { isOpened } = useAppSelector((state) => state.navbar)
-  const dispatch = useAppDispatch()
+type NavbarContentKey = 'default' | 'language' | 'help'
 
-  const handleOnClick = () => {
+export const Navbar: React.FC<NavbarProps> = ({ t }) => {
+  const dispatch = useAppDispatch()
+  const { isOpened } = useAppSelector((state) => state.navbar)
+  const [navbarContent, setNavbarContent] =
+    useState<NavbarContentKey>('default')
+
+  const switchNavbarContent = (contentKey: NavbarContentKey) => {
+    setNavbarContent(contentKey)
+  }
+
+  const handleNavbar = () => {
     dispatch(toggleNavbar(!isOpened))
+    if (isOpened) {
+      setNavbarContent('default')
+    }
+  }
+
+  const navbarComponents: Record<NavbarContentKey, JSX.Element> = {
+    default: (
+      <DefaultNavbar
+        t={t}
+        handleOnClick={handleNavbar}
+        handleLanguageClick={() => switchNavbarContent('language')}
+        handleHelpClick={() => switchNavbarContent('help')}
+      />
+    ),
+    language: (
+      <LanguageNavbar
+        t={t}
+        handleOnClick={() => switchNavbarContent('default')}
+      />
+    ),
+    help: (
+      <HelpNavbar t={t} handleOnClick={() => switchNavbarContent('default')} />
+    )
   }
 
   return (
@@ -28,51 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({ t }) => {
       id="menu"
     >
       <div className="container">
-        <div className="menu__content">
-          <Image
-            src={cross}
-            alt="burgerImage"
-            className="menu__close"
-            onClick={handleOnClick}
-          />
-          <ul className="menu__list">
-            <li className="menu__item">
-              <a href={'/'} className="menu__link">
-                {t.navbar.about}
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href={'/'} className="menu__link">
-                {t.navbar.tech}
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href={'/'} className="menu__link">
-                {t.navbar.benefits}
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href={'/'} className="menu__link">
-                {t.navbar.contact}
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href={'/'} className="menu__link">
-                {t.navbar.language}
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href={'/'} className="menu__link">
-                {t.navbar.faq}
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href={'/'} className="menu__link">
-                {t.navbar.help}
-              </a>
-            </li>
-          </ul>
-        </div>
+        <div className="menu__content">{navbarComponents[navbarContent]}</div>
       </div>
     </nav>
   )
