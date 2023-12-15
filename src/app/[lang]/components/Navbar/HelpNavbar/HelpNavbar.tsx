@@ -1,8 +1,24 @@
+import Image from 'next/image'
+
+import { Translations } from '@/app/[lang]/types/Translations'
 import { TextDecorator } from '../../TextDecorator/TextDecorator'
 
-export const HelpNavbar = () => {
+import backImage from '../../../../../../public/icons/arrow-back.svg'
+
+interface HelpNavbarProps {
+  t: Translations
+  handleOnClick: () => void
+}
+
+export const HelpNavbar: React.FC<HelpNavbarProps> = ({ handleOnClick }) => {
   return (
     <>
+      <Image
+        src={backImage}
+        alt="burgerImage"
+        className="menu__close menu__close_back"
+        onClick={handleOnClick}
+      />
       <h4 className="menu__title">
         HOW CAN WE <TextDecorator>Help</TextDecorator> YOU?
       </h4>
@@ -12,11 +28,11 @@ export const HelpNavbar = () => {
           Welcome to our help center. Our goal is to make the process of getting
           acquainted and purchase as easy and pleasant as possible. Need help
           with your KAT VR loco product? Many product questions can be resolved
-          by reviewing our Product Support FAQs.
+          by reviewing our Product Support <TextDecorator>FAQs</TextDecorator>
         </p>
         <p>
-          Please also feel free to Contact Us directly should you need anything
-          further. We’re happy to help.
+          Please also feel free to <TextDecorator>Contact Us</TextDecorator>{' '}
+          directly should you need anything further. We’re happy to help.
         </p>
       </section>
 
