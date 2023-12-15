@@ -1,8 +1,6 @@
 import { Translations } from '@/app/[lang]/types/Translations'
 import './ControlBar.scss'
 import { MoreButton } from './MoreButton/MoreButton'
-import { Modal } from '../../Modal/Modal'
-import { FAQComponent } from '../../FAQ/FAQComponent '
 
 interface ControlBarProps {
   t: Translations
@@ -25,9 +23,9 @@ export const ControlBar: React.FC<ControlBarProps> = ({ t }) => {
           <p className="control-bar__next">{t['control-bar'].next}</p>
         </article>
       </section>
-      <Modal isActive={true}>
+      {/* <Modal isActive={true}>
         <FAQComponent />
-      </Modal>
+      </Modal> */}
     </>
   )
 }
