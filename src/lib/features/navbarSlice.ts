@@ -14,6 +14,11 @@ const navbarSlice = createSlice({
   reducers: {
     toggleNavbar: (state, action: PayloadAction<boolean>) => {
       state.isOpened = action.payload
+      if (action.payload) {
+        document.body.classList.add('no-scroll')
+      } else {
+        document.body.classList.remove('no-scroll')
+      }
     }
   }
 })
