@@ -9,12 +9,13 @@ import { Translations } from '../../types/Translations'
 import { DefaultNavbar } from './DefaultNavbar/DefaultNavbar'
 import { LanguageNavbar } from './LanguageNavbar/LanguageNavbar'
 import { HelpNavbar } from './HelpNavbar/HelpNavbar'
+import { FAQComponent } from '../FAQ/FAQComponent '
 
 interface NavbarProps {
   t: Translations
 }
 
-type NavbarContentKey = 'default' | 'language' | 'help'
+type NavbarContentKey = 'default' | 'language' | 'help' | 'faq'
 
 export const Navbar: React.FC<NavbarProps> = ({ t }) => {
   const dispatch = useAppDispatch()
@@ -40,6 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({ t }) => {
         handleOnClick={handleNavbar}
         handleLanguageClick={() => switchNavbarContent('language')}
         handleHelpClick={() => switchNavbarContent('help')}
+        handleFAQClick={() => switchNavbarContent('faq')}
       />
     ),
     language: (
@@ -50,6 +52,12 @@ export const Navbar: React.FC<NavbarProps> = ({ t }) => {
     ),
     help: (
       <HelpNavbar t={t} handleOnClick={() => switchNavbarContent('default')} />
+    ),
+    faq: (
+      <FAQComponent
+        t={t}
+        handleOnClick={() => switchNavbarContent('default')}
+      />
     )
   }
 
