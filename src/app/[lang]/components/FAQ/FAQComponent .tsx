@@ -1,11 +1,24 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
-import './FAQ.scss'
+
 import { faqData } from './FAQTabs'
 import { TextDecorator } from '../TextDecorator/TextDecorator'
+import { Translations } from '../../types/Translations'
 
-export const FAQComponent = () => {
+import backImage from '../../../../../public/icons/arrow-back.svg'
+
+import './FAQ.scss'
+interface FAQComponentProps {
+  t: Translations
+  handleOnClick: () => void
+}
+
+export const FAQComponent: React.FC<FAQComponentProps> = ({
+  // t,
+  handleOnClick
+}) => {
   const [activeTab, setActiveTab] = useState(0)
 
   const renderFAQ = (
@@ -26,11 +39,19 @@ export const FAQComponent = () => {
   )
 
   return (
-    <section className="faq">
-      <h3 className="faq__title">
-        FREQUENTLY ASKED <TextDecorator>QUESTIONS</TextDecorator>
-      </h3>
-      {faqData.map(renderFAQ)}
-    </section>
+    <>
+      <Image
+        src={backImage}
+        alt="burgerImage"
+        className="menu__close menu__close_back"
+        onClick={handleOnClick}
+      />
+      <section className="faq">
+        <h3 className="faq__title">
+          FREQUENTLY ASKED <TextDecorator>QUESTIONS</TextDecorator>
+        </h3>
+        <section className="faq__tabs">{faqData.map(renderFAQ)}</section>
+      </section>
+    </>
   )
 }

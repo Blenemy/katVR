@@ -5,7 +5,14 @@
   &__title {
     margin-bottom: 30px;
   }
+
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
+
 .tab-faq {
   border: 1px solid $contrast-blue;
 
@@ -17,11 +24,17 @@
   }
 
   &__title {
+    @include typography(400, 16px, 24px);
+    color: $contrast-blue;
   }
 
   &__text {
+    @include typography(400, 16px, 24px);
+    color: $text-color;
   }
 
   &__date {
+    @include typography(400, 12px, 18px);
+    color: #545454;
   }
 }
