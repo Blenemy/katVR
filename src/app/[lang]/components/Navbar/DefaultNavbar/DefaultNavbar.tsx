@@ -8,13 +8,15 @@ interface DefaultNavbarProps {
   handleOnClick: () => void
   handleLanguageClick: () => void
   handleHelpClick: () => void
+  handleFAQClick: () => void
 }
 
 export const DefaultNavbar: React.FC<DefaultNavbarProps> = ({
   t,
   handleLanguageClick,
   handleOnClick,
-  handleHelpClick
+  handleHelpClick,
+  handleFAQClick
 }) => {
   return (
     <>
@@ -32,7 +34,9 @@ export const DefaultNavbar: React.FC<DefaultNavbarProps> = ({
         <li className="menu__item" onClick={handleLanguageClick}>
           {t.navbar.language}
         </li>
-        <li className="menu__item">{t.navbar.faq}</li>
+        <li className="menu__item" onClick={handleFAQClick}>
+          {t.navbar.faq}
+        </li>
         <li className="menu__item" onClick={handleHelpClick}>
           {t.navbar.help}
         </li>
