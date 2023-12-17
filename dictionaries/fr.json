@@ -1,0 +1,31 @@
+{
+  "header": {
+    "title": "LE NOUVEAU DÉPART DE",
+    "textDecorator": "LOCOMOTION VR",
+    "subtitle": "Découvrez le système de locomotion VR le plus complet et débloquez un mouvement infini dans tous les jeux sur toutes les plateformes!",
+    "price": "1200$",
+    "button": "Acheter Maintenant"
+  },
+  "navbar": {
+    "about": "À propos",
+    "tech": "Technologie",
+    "benefits": "Avantages",
+    "contact": "Contact",
+    "language": "Langue",
+    "faq": "FAQ",
+    "help": "Aide"
+  },
+  "control-bar": {
+    "faq": "FAQ",
+    "help": "Aide",
+    "more-btn": "Plus",
+    "previous": "Précédent",
+    "next": "Suivant"
+  },
+  "language-selector": {
+    "english": "Anglais",
+    "german": "Allemand",
+    "spanish": "Espagnole",
+    "french": "Française"
+  }
+}

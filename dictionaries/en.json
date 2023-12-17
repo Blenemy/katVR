@@ -24,6 +24,8 @@
   },
   "language-selector": {
     "english": "English",
-    "german": "German"
+    "german": "German",
+    "spanish": "Spanish",
+    "french": "French"
   }
 }
