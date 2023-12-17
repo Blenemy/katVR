@@ -8,9 +8,13 @@ import { TextDecorator } from '../../../TextDecorator/TextDecorator'
 interface HelpNavbarProps {
   t: Translations
   handleOnClick: () => void
+  handleSwitchNavigationBar: () => void
 }
 
-export const HelpNavbar: React.FC<HelpNavbarProps> = ({ handleOnClick }) => {
+export const HelpNavbar: React.FC<HelpNavbarProps> = ({
+  handleOnClick,
+  handleSwitchNavigationBar
+}) => {
   return (
     <>
       <Image
@@ -28,7 +32,10 @@ export const HelpNavbar: React.FC<HelpNavbarProps> = ({ handleOnClick }) => {
           Welcome to our help center. Our goal is to make the process of getting
           acquainted and purchase as easy and pleasant as possible. Need help
           with your KAT VR loco product? Many product questions can be resolved
-          by reviewing our Product Support <TextDecorator>FAQs</TextDecorator>
+          by reviewing our Product Support{' '}
+          <TextDecorator onClick={handleSwitchNavigationBar}>
+            FAQs
+          </TextDecorator>
         </p>
         <p>
           Please also feel free to <TextDecorator>Contact Us</TextDecorator>{' '}
