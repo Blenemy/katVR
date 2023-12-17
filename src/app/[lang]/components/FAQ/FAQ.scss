@@ -17,6 +17,10 @@
 .tab-faq {
   border: 1px solid $contrast-blue;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &__content {
     padding: 20px 12px;
     display: flex;
@@ -24,9 +28,19 @@
     gap: 20px;
   }
 
+  &__title-cotainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__title {
     @include typography(400, 16px, 24px);
     color: $contrast-blue;
+  }
+
+  &__arrow-more-img {
+    width: 9px;
+    height: 9px;
   }
 
   &__text {
@@ -37,5 +51,36 @@
   &__date {
     @include typography(400, 12px, 18px);
     color: #545454;
+  }
+}
+
+@include onDesktop {
+  .faq {
+    &__title {
+      margin-bottom: 30px;
+      @include typography(900, 21px, 27px);
+    }
+
+    &__tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  .tab-faq {
+    &__content {
+    }
+
+    &__title {
+    }
+
+    &__text {
+    }
+
+    &__date {
+      @include typography(400, 12px, 18px);
+      color: #545454;
+    }
   }
 }

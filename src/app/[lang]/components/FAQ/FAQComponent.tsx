@@ -8,16 +8,20 @@ import { TextDecorator } from '../TextDecorator/TextDecorator'
 import { Translations } from '../../types/Translations'
 
 import backImage from '../../../../../public/icons/arrow-back.svg'
+import arrowMoreBlue from '../../../../../public/icons/arrow-more-blue.svg'
+import arrowMoreWhite from '../../../../../public/icons/arrow-more-white.svg'
 
 import './FAQ.scss'
 interface FAQComponentProps {
   t: Translations
-  handleOnClick: () => void
+  handleOnClick?: () => void
+  isDesktop?: boolean
 }
 
 export const FAQComponent: React.FC<FAQComponentProps> = ({
   // t,
-  handleOnClick
+  handleOnClick,
+  isDesktop = false
 }) => {
   const [activeTab, setActiveTab] = useState(0)
 
@@ -27,7 +31,22 @@ export const FAQComponent: React.FC<FAQComponentProps> = ({
   ) => (
     <div className="tab-faq" key={index} onClick={() => setActiveTab(index)}>
       <div className="tab-faq__content">
-        <h4 className="tab-faq__title">{faq.question}</h4>
+        <div className="tab-faq__title-cotainer">
+          <h4 className="tab-faq__title">{faq.question}</h4>
+          {activeTab === index ? (
+            <Image
+              alt="arrowDown"
+              src={arrowMoreBlue}
+              className="tab-faq__arrow-more-img"
+            />
+          ) : (
+            <Image
+              alt="arrowDown"
+              src={arrowMoreWhite}
+              className="tab-faq__arrow-more-img"
+            />
+          )}
+        </div>
         {activeTab === index && (
           <>
             <p className="tab-faq__text">{faq.answer}</p>
@@ -40,12 +59,15 @@ export const FAQComponent: React.FC<FAQComponentProps> = ({
 
   return (
     <>
-      <Image
-        src={backImage}
-        alt="burgerImage"
-        className="menu__close menu__close_back"
-        onClick={handleOnClick}
-      />
+      {!isDesktop && (
+        <Image
+          src={backImage}
+          alt="burgerImage"
+          className="menu__close menu__close_back"
+          onClick={handleOnClick}
+        />
+      )}
+
       <section className="faq">
         <h3 className="faq__title">
           FREQUENTLY ASKED <TextDecorator>QUESTIONS</TextDecorator>
