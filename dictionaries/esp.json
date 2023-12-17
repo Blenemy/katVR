@@ -1,0 +1,29 @@
+{
+  "header": {
+    "title": "EL NUEVO COMIENZO DE",
+    "textDecorator": "LOCOMOCIÓN VR",
+    "subtitle": "Descubre el sistema de locomoción VR más completo y desbloquea movimiento infinito en cualquier juego en cualquier plataforma!",
+    "price": "1200$",
+    "button": "Comprar Ahora"
+  },
+  "navbar": {
+    "about": "Acerca de",
+    "tech": "Tecnología",
+    "benefits": "Beneficios",
+    "contact": "Contacto",
+    "language": "Idioma",
+    "faq": "Preguntas Frecuentes",
+    "help": "Ayuda"
+  },
+  "control-bar": {
+    "faq": "Preguntas Frecuentes",
+    "help": "Ayuda",
+    "more-btn": "Más",
+    "previous": "Anterior",
+    "next": "Siguiente"
+  },
+  "language-selector": {
+    "english": "Inglés",
+    "german": "Alemán"
+  }
+}
