@@ -33,6 +33,12 @@ export const LanguageNavbar: React.FC<LanguageNavbarProps> = ({
         <li className="menu__item" onClick={handleSwitchLanguage('de')}>
           {t['language-selector'].german}
         </li>
+        <li className="menu__item" onClick={handleSwitchLanguage('esp')}>
+          {t['language-selector'].spanish}
+        </li>
+        <li className="menu__item" onClick={handleSwitchLanguage('fr')}>
+          {t['language-selector'].french}
+        </li>
       </ul>
     </>
   )
