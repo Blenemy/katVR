@@ -17,6 +17,7 @@
   &__title {
     @include typography(900, 21px, 27px);
     margin-bottom: 30px;
+    text-transform: uppercase;
   }
 
   &__close {
