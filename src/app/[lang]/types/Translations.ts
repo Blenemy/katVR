@@ -27,6 +27,8 @@ interface Controlbar {
 interface Language {
   english: string
   german: string
+  spanish: string
+  french: string
 }
 
 export interface Translations {
