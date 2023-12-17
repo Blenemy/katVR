@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import backImage from '../../../../../../public/icons/arrow-back.svg'
 import { Translations } from '@/app/[lang]/types/Translations'
+import { useRouter } from 'next/navigation'
 
 interface LanguageNavbarProps {
   t: Translations
@@ -8,9 +9,15 @@ interface LanguageNavbarProps {
 }
 
 export const LanguageNavbar: React.FC<LanguageNavbarProps> = ({
-  // t,
+  t,
   handleOnClick
 }) => {
+  const router = useRouter()
+
+  const handleSwitchLanguage = (payload: string) => () => {
+    router.push(`/${payload}`)
+  }
+
   return (
     <>
       <Image
@@ -20,8 +27,12 @@ export const LanguageNavbar: React.FC<LanguageNavbarProps> = ({
         onClick={handleOnClick}
       />
       <ul className="menu__list">
-        <li className="menu__item">English</li>
-        <li className="menu__item">German</li>
+        <li className="menu__item" onClick={handleSwitchLanguage('en')}>
+          {t['language-selector'].english}
+        </li>
+        <li className="menu__item" onClick={handleSwitchLanguage('de')}>
+          {t['language-selector'].german}
+        </li>
       </ul>
     </>
   )
