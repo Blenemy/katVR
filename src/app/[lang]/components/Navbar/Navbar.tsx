@@ -9,7 +9,7 @@ import { Translations } from '../../types/Translations'
 import { DefaultNavbar } from './DefaultNavbar/DefaultNavbar'
 import { LanguageNavbar } from './LanguageNavbar/LanguageNavbar'
 import { HelpNavbar } from './HelpNavbar/HelpNavbar'
-import { FAQComponent } from '../FAQ/FAQComponent '
+import { FAQComponent } from '../FAQ/FAQComponent'
 
 interface NavbarProps {
   t: Translations
