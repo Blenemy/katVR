@@ -4,6 +4,7 @@
 .faq {
   &__title {
     margin-bottom: 30px;
+    @include typography(900, 21px, 27px);
   }
 
   &__tabs {
