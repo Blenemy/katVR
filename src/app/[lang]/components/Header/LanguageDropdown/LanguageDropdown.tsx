@@ -41,6 +41,12 @@ export const LanguageDropdown = () => {
         <option className="language-dropdown__option" value="de">
           Ge
         </option>
+        <option className="language-dropdown__option" value="esp">
+          Esp
+        </option>
+        <option className="language-dropdown__option" value="fr">
+          Fr
+        </option>
       </select>
       <Image
         src={dropdownOpen ? arrowWhite : arrowBlue}
