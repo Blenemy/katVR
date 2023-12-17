@@ -27,5 +27,19 @@
     "german": "Allemand",
     "spanish": "Espagnole",
     "french": "Française"
+  },
+  "help": {
+    "title": ["COMMENT POUVONS-NOUS", "VOUS AIDER?"],
+    "intro": "Bienvenue dans notre centre d'aide. Notre objectif est de rendre le processus de familiarisation et d'achat aussi facile et agréable que possible. Besoin d'aide avec votre produit KAT VR Loco? De nombreuses questions sur les produits peuvent être résolues en consultant nos FAQs de support produit.",
+    "contactMessage": [
+      "N'hésitez pas également à",
+      "nous contacter directement si vous avez besoin de plus d'informations. Nous sommes heureux de vous aider."
+    ],
+    "supportLinks": [
+      "Manuel d'instructions",
+      "Où aller pour la garantie",
+      "Politique de service"
+    ],
+    "contacts": ["+86-0571-86105373", "global@katvr.com", "overseas@katvr.com"]
   }
 }

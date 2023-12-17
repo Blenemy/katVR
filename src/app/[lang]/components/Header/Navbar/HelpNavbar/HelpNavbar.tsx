@@ -13,7 +13,8 @@ interface HelpNavbarProps {
 
 export const HelpNavbar: React.FC<HelpNavbarProps> = ({
   handleOnClick,
-  handleSwitchNavigationBar
+  handleSwitchNavigationBar,
+  t
 }) => {
   return (
     <>
@@ -24,37 +25,40 @@ export const HelpNavbar: React.FC<HelpNavbarProps> = ({
         onClick={handleOnClick}
       />
       <h4 className="menu__title">
-        HOW CAN WE <TextDecorator>Help</TextDecorator> YOU?
+        {`${t.help.title[0]} `}
+        <TextDecorator>{t.navbar.help}</TextDecorator> {` ${t.help.title[1]}`}
       </h4>
 
       <section className="menu__body-text">
-        <p className="menu__text">
-          Welcome to our help center. Our goal is to make the process of getting
-          acquainted and purchase as easy and pleasant as possible. Need help
-          with your KAT VR loco product? Many product questions can be resolved
-          by reviewing our Product Support{' '}
+        <article className="menu__text">
+          {`${t.help.intro} `}
           <TextDecorator onClick={handleSwitchNavigationBar}>
-            FAQs
+            {t.navbar.faq}
           </TextDecorator>
-        </p>
-        <p>
-          Please also feel free to <TextDecorator>Contact Us</TextDecorator>{' '}
-          directly should you need anything further. We’re happy to help.
-        </p>
+        </article>
+        <article className="menu__text">
+          {`${t.help.contactMessage[0]} `}
+          <TextDecorator>{t.navbar.contact}</TextDecorator>{' '}
+          {` ${t.help.contactMessage[1]}`}
+        </article>
       </section>
 
       <section className="menu__support">
-        <article className="menu__support-link">Instruction manual</article>
         <article className="menu__support-link">
-          Where to go for a warranty
+          {t.help.supportLinks[0]}
         </article>
-        <article className="menu__support-link">Service Policy</article>
+        <article className="menu__support-link">
+          {t.help.supportLinks[1]}
+        </article>
+        <article className="menu__support-link">
+          {t.help.supportLinks[2]}
+        </article>
       </section>
 
       <section className="menu__contacts">
-        <article className="menu__contact">+86-0571-86105373</article>
-        <article className="menu__contact">global@katvr.com</article>
-        <article className="menu__contact">overseas@katvr.com</article>
+        <article className="menu__contact">{t.help.contacts[0]}</article>
+        <article className="menu__contact">{t.help.contacts[1]}</article>
+        <article className="menu__contact">{t.help.contacts[2]}</article>
       </section>
     </>
   )

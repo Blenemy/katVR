@@ -31,9 +31,18 @@ interface Language {
   french: string
 }
 
+interface HelpNavbar {
+  title: string[]
+  intro: string
+  contactMessage: string[]
+  supportLinks: string[]
+  contacts: string[]
+}
+
 export interface Translations {
   header: Header
   navbar: Navbar
   'control-bar': Controlbar
   'language-selector': Language
+  help: HelpNavbar
 }

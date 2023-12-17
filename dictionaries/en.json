@@ -10,7 +10,7 @@
     "about": "About",
     "tech": "Tech",
     "benefits": "Benefits",
-    "contact": "Contact",
+    "contact": "Contact Us",
     "language": "Language",
     "faq": "FAQ",
     "help": "Help"
@@ -27,5 +27,19 @@
     "german": "German",
     "spanish": "Spanish",
     "french": "French"
+  },
+  "help": {
+    "title": ["HOW CAN WE", "YOU"],
+    "intro": "Welcome to our help center. Our goal is to make the process of getting acquainted and purchase as easy and pleasant as possible. Need help with your KAT VR loco product? Many product questions can be resolved by reviewing our Product Support",
+    "contactMessage": [
+      "Please also feel free to",
+      "directly should you need anything further. We’re happy to help."
+    ],
+    "supportLinks": [
+      "Instruction manual",
+      "Where to go for a warranty",
+      "Service Policy"
+    ],
+    "contacts": ["+86-0571-86105373", "global@katvr.com", "overseas@katvr.com"]
   }
 }
