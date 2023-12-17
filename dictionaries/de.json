@@ -21,5 +21,9 @@
     "more-btn": "Mehr",
     "previous": "Zurück",
     "next": "Weiter"
+  },
+  "language-selector": {
+    "english": "Englisch",
+    "german": "Deutsch"
   }
 }

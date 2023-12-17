@@ -24,8 +24,14 @@ interface Controlbar {
   next: string
 }
 
+interface Language {
+  english: string
+  german: string
+}
+
 export interface Translations {
   header: Header
   navbar: Navbar
   'control-bar': Controlbar
+  'language-selector': Language
 }
