@@ -11,6 +11,22 @@
     justify-content: space-between;
     align-items: center;
 
+    &__FAQ {
+      &:hover {
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        color: $contrast-blue;
+      }
+    }
+
+    &__help {
+      &:hover {
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        color: $contrast-blue;
+      }
+    }
+
     &__left {
       display: flex;
       gap: 40px;
