@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import cross from '../../../../../../public/icons/cross-white.svg'
+import cross from '../../../../../../../public/icons/cross-white.svg'
 import { Translations } from '@/app/[lang]/types/Translations'
 
 interface DefaultNavbarProps {

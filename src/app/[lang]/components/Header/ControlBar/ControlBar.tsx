@@ -3,10 +3,10 @@
 import { Translations } from '@/app/[lang]/types/Translations'
 import { MoreButton } from './MoreButton/MoreButton'
 import { Modal } from '../../Modal/Modal'
-import { FAQComponent } from '../../FAQ/FAQComponent'
 
 import './ControlBar.scss'
 import { useState } from 'react'
+import { FAQComponent } from '../../FAQ/FAQComponent'
 
 interface ControlBarProps {
   t: Translations

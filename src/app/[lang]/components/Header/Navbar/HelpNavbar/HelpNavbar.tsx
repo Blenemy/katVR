@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
 import { Translations } from '@/app/[lang]/types/Translations'
-import { TextDecorator } from '../../TextDecorator/TextDecorator'
 
-import backImage from '../../../../../../public/icons/arrow-back.svg'
+import backImage from '../../../../../../../public/icons/arrow-back.svg'
+import { TextDecorator } from '../../../TextDecorator/TextDecorator'
 
 interface HelpNavbarProps {
   t: Translations

@@ -1,7 +1,9 @@
 import Image from 'next/image'
-import backImage from '../../../../../../public/icons/arrow-back.svg'
-import { Translations } from '@/app/[lang]/types/Translations'
 import { useRouter } from 'next/navigation'
+
+import { Translations } from '@/app/[lang]/types/Translations'
+
+import backImage from '../../../../../../../public/icons/arrow-back.svg'
 
 interface LanguageNavbarProps {
   t: Translations

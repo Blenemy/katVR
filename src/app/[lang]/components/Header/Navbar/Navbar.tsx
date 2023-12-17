@@ -5,11 +5,11 @@ import cn from 'classnames'
 import './Navbar.scss'
 import { toggleNavbar } from '@/lib/features/navbarSlice'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
-import { Translations } from '../../types/Translations'
 import { DefaultNavbar } from './DefaultNavbar/DefaultNavbar'
 import { LanguageNavbar } from './LanguageNavbar/LanguageNavbar'
 import { HelpNavbar } from './HelpNavbar/HelpNavbar'
-import { FAQComponent } from '../FAQ/FAQComponent'
+import { Translations } from '@/app/[lang]/types/Translations'
+import { FAQComponent } from '../../FAQ/FAQComponent'
 
 interface NavbarProps {
   t: Translations

@@ -7,13 +7,13 @@ import { ControlBar } from './ControlBar/ControlBar'
 import { LanguageDropdown } from './LanguageDropdown/LanguageDropdown'
 import { Container } from '../Container/Container'
 import { BurgerIcon } from './BurgerIcon/BurgerIcon'
-import { Navbar } from '../Navbar/Navbar'
 import { Translations } from '../../types/Translations'
 
 import logo from '../../../../../public/icons/Logo.svg'
 import mainImage_2x from './images/header-main_2x.png'
 
 import './Header.scss'
+import { Navbar } from './Navbar/Navbar'
 
 interface HeaderProps {
   t: Translations
