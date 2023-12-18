@@ -9,21 +9,26 @@ interface HelpNavbarProps {
   t: Translations
   handleOnClick: () => void
   handleSwitchNavigationBar: () => void
+  isDesktop?: boolean
 }
 
 export const HelpNavbar: React.FC<HelpNavbarProps> = ({
   handleOnClick,
   handleSwitchNavigationBar,
-  t
+  t,
+  isDesktop = false
 }) => {
   return (
     <>
-      <Image
-        src={backImage}
-        alt="burgerImage"
-        className="menu__close menu__close_back"
-        onClick={handleOnClick}
-      />
+      {!isDesktop && (
+        <Image
+          src={backImage}
+          alt="burgerImage"
+          className="menu__close menu__close_back"
+          onClick={handleOnClick}
+        />
+      )}
+
       <h4 className="menu__title">
         {`${t.help.title[0]} `}
         <TextDecorator>{t.navbar.help}</TextDecorator> {` ${t.help.title[1]}`}
@@ -43,23 +48,25 @@ export const HelpNavbar: React.FC<HelpNavbarProps> = ({
         </article>
       </section>
 
-      <section className="menu__support">
-        <article className="menu__support-link">
-          {t.help.supportLinks[0]}
-        </article>
-        <article className="menu__support-link">
-          {t.help.supportLinks[1]}
-        </article>
-        <article className="menu__support-link">
-          {t.help.supportLinks[2]}
-        </article>
-      </section>
+      <div className="menu__credentials">
+        <section className="menu__support">
+          <article className="menu__support-link">
+            {t.help.supportLinks[0]}
+          </article>
+          <article className="menu__support-link">
+            {t.help.supportLinks[1]}
+          </article>
+          <article className="menu__support-link">
+            {t.help.supportLinks[2]}
+          </article>
+        </section>
 
-      <section className="menu__contacts">
-        <article className="menu__contact">{t.help.contacts[0]}</article>
-        <article className="menu__contact">{t.help.contacts[1]}</article>
-        <article className="menu__contact">{t.help.contacts[2]}</article>
-      </section>
+        <section className="menu__contacts">
+          <article className="menu__contact">{t.help.contacts[0]}</article>
+          <article className="menu__contact">{t.help.contacts[1]}</article>
+          <article className="menu__contact">{t.help.contacts[2]}</article>
+        </section>
+      </div>
     </>
   )
 }

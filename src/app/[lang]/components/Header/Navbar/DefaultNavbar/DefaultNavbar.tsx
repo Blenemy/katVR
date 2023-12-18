@@ -25,6 +25,8 @@ export const DefaultNavbar: React.FC<DefaultNavbarProps> = ({
         alt="burgerImage"
         className="menu__close"
         onClick={handleOnClick}
+        width={19}
+        height={19}
       />
       <ul className="menu__list">
         <li className="menu__item">{t.navbar.about}</li>

@@ -5,8 +5,9 @@ import { MoreButton } from './MoreButton/MoreButton'
 import { Modal } from '../../Modal/Modal'
 
 import './ControlBar.scss'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { FAQComponent } from '../../FAQ/FAQComponent'
+import { HelpNavbar } from '../Navbar/HelpNavbar/HelpNavbar'
 
 interface ControlBarProps {
   t: Translations
@@ -14,23 +15,43 @@ interface ControlBarProps {
 
 export const ControlBar: React.FC<ControlBarProps> = ({ t }) => {
   const [isActiveModal, setActiveModal] = useState<boolean>(false)
+  const [modalContent, setModalContent] = useState<React.ReactNode>(null)
 
-  const handleToggleModal = () => {
-    setActiveModal(false)
-  }
+  const handleSwitchNavigationBar = useCallback(() => {
+    setModalContent(<FAQComponent t={t} isDesktop />)
+  }, [t])
 
-  const handleOpenModal = () => {
-    setActiveModal(true)
-  }
+  const handleToggleModal = useCallback(() => {
+    setActiveModal((prev) => !prev)
+  }, [])
+
+  const handleFAQClick = useCallback(() => {
+    setModalContent(<FAQComponent t={t} isDesktop />)
+    handleToggleModal()
+  }, [t, handleToggleModal])
+
+  const handleHelpClick = useCallback(() => {
+    setModalContent(
+      <HelpNavbar
+        t={t}
+        isDesktop
+        handleSwitchNavigationBar={handleSwitchNavigationBar}
+        handleOnClick={handleToggleModal}
+      />
+    )
+    handleToggleModal()
+  }, [t, handleToggleModal, handleSwitchNavigationBar])
 
   return (
     <>
       <section className="header__control-bar control-bar">
         <article className="control-bar__left">
-          <p className="control-bar__FAQ" onClick={handleOpenModal}>
+          <p className="control-bar__FAQ" onClick={handleFAQClick}>
             {t['control-bar'].faq}
           </p>
-          <p className="control-bar__help">{t['control-bar'].help}</p>
+          <p className="control-bar__help" onClick={handleHelpClick}>
+            {t['control-bar'].help}
+          </p>
         </article>
         <MoreButton
           classes="control-bar__center"
@@ -43,7 +64,7 @@ export const ControlBar: React.FC<ControlBarProps> = ({ t }) => {
       </section>
       {isActiveModal && (
         <Modal isActive={isActiveModal} handleToggleModal={handleToggleModal}>
-          <FAQComponent t={t} isDesktop />
+          {modalContent}
         </Modal>
       )}
     </>
