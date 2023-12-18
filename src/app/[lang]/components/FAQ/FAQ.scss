@@ -31,16 +31,12 @@
   &__title-cotainer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   &__title {
     @include typography(400, 16px, 24px);
     color: $contrast-blue;
-  }
-
-  &__arrow-more-img {
-    width: 9px;
-    height: 9px;
   }
 
   &__text {
@@ -69,15 +65,6 @@
   }
 
   .tab-faq {
-    &__content {
-    }
-
-    &__title {
-    }
-
-    &__text {
-    }
-
     &__date {
       @include typography(400, 12px, 18px);
       color: #545454;

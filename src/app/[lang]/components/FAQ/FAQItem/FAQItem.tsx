@@ -12,6 +12,8 @@ export const FAQItem = ({ faq, index, isActive, setActiveTab }: any) => {
             alt="arrowDown"
             src={isActive ? arrowMoreBlue : arrowMoreWhite}
             className="tab-faq__arrow-more-img"
+            width={9}
+            height={9}
           />
         </div>
         {isActive && (
