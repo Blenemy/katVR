@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, memo } from 'react'
 import cn from 'classnames'
 
 import './Modal.scss'
@@ -9,30 +9,31 @@ interface ModalProps {
   handleToggleModal: () => void
 }
 
-export const Modal: React.FC<ModalProps> = ({
-  children,
-  isActive,
-  handleToggleModal
-}) => {
-  return (
-    <div
-      className={cn('modal', {
-        'active-modal': isActive
-      })}
-    >
+export const Modal: React.FC<ModalProps> = memo(
+  ({ children, isActive, handleToggleModal }) => {
+    return (
       <div
-        className={cn('modal__content', {
-          'active-modal__content': isActive
+        className={cn('modal', {
+          'active-modal': isActive
         })}
       >
-        <>
-          <SvgComponent onClick={handleToggleModal} className="modal__close" />
-          {children}
-        </>
+        <div
+          className={cn('modal__content', {
+            'active-modal__content': isActive
+          })}
+        >
+          <>
+            <SvgComponent
+              onClick={handleToggleModal}
+              className="modal__close"
+            />
+            {children}
+          </>
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
+)
 
 const SvgComponent = (props: any) => (
   <svg
