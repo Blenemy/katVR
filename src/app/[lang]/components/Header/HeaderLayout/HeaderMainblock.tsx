@@ -1,18 +1,15 @@
-import Image from 'next/image'
 import { TextDecorator } from '../../TextDecorator/TextDecorator'
 import { PlayVideo } from '../../PlayVideo/PlayVideo'
 import { Button } from '../../Button/Button'
 
-import mainImage_2x from '../../../../../../public/icons/header-main_2x.png'
 import { Translations } from '@/app/[lang]/types/Translations'
+import { HeroImage } from './HeroImage/HeroImage'
 
 export const HeaderMainblock = ({ t }: { t: Translations }) => {
   return (
     <section className="header__main-block main-block-header">
       <article className="header__hero main-block-header__article main-block-header__article_image">
-        <div className="_img-container header__hero hero">
-          <Image src={mainImage_2x} alt="hero" className="hero__img" />
-        </div>
+        <HeroImage />
       </article>
       <article className="header__main-content main-block-header__article main-block-header__article_content">
         <h1 className="header__title">

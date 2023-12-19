@@ -8,6 +8,8 @@ import './ControlBar.scss'
 import { useCallback, useState } from 'react'
 import { FAQComponent } from '../../FAQ/FAQComponent'
 import { HelpMenu } from '../NavigationMenu/HelpMenu/HelpMenu'
+import { useAppDispatch } from '@/lib/hooks'
+import { nextImage, previousImage } from '@/lib/features/heroImageSlice'
 
 interface ControlBarProps {
   t: Translations
@@ -16,6 +18,7 @@ interface ControlBarProps {
 export const ControlBar: React.FC<ControlBarProps> = ({ t }) => {
   const [isActiveModal, setActiveModal] = useState<boolean>(false)
   const [modalContent, setModalContent] = useState<React.ReactNode>(null)
+  const dispatch = useAppDispatch()
 
   const handleSwitchNavigationBar = useCallback(() => {
     setModalContent(<FAQComponent t={t} isDesktop />)
@@ -42,6 +45,14 @@ export const ControlBar: React.FC<ControlBarProps> = ({ t }) => {
     handleToggleModal()
   }, [t, handleToggleModal, handleSwitchNavigationBar])
 
+  const handleNextClick = () => {
+    dispatch(nextImage())
+  }
+
+  const handlePreviousClick = () => {
+    dispatch(previousImage())
+  }
+
   return (
     <>
       <section className="header__control-bar control-bar">
@@ -58,8 +69,12 @@ export const ControlBar: React.FC<ControlBarProps> = ({ t }) => {
           text={t['control-bar']['more-btn']}
         />
         <article className="control-bar__right">
-          <p className="control-bar__previous">{t['control-bar'].previous}</p>
-          <p className="control-bar__next">{t['control-bar'].next}</p>
+          <p className="control-bar__previous" onClick={handlePreviousClick}>
+            {t['control-bar'].previous}
+          </p>
+          <p className="control-bar__next" onClick={handleNextClick}>
+            {t['control-bar'].next}
+          </p>
         </article>
       </section>
       {isActiveModal && (
