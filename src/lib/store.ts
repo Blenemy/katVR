@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import navbarSlice from './features/navbarSlice'
+import heroImageSlice from './features/heroImageSlice'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      navbar: navbarSlice
+      navbar: navbarSlice,
+      heroImageSlice: heroImageSlice
     }
   })
 }
