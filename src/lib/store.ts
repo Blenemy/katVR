@@ -1,12 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import navbarSlice from './features/navbarSlice'
-import languageSlice from './features/languageSlice'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      navbar: navbarSlice,
-      language: languageSlice
+      navbar: navbarSlice
     }
   })
 }
