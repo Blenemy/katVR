@@ -5,14 +5,14 @@ import { Translations } from '@/app/[lang]/types/Translations'
 import backImage from '../../../../../../../public/icons/arrow-back.svg'
 import { TextDecorator } from '../../../TextDecorator/TextDecorator'
 
-interface HelpNavbarProps {
+interface HelpMenuProps {
   t: Translations
   handleOnClick: () => void
   handleSwitchNavigationBar: () => void
   isDesktop?: boolean
 }
 
-export const HelpNavbar: React.FC<HelpNavbarProps> = ({
+export const HelpMenu: React.FC<HelpMenuProps> = ({
   handleOnClick,
   handleSwitchNavigationBar,
   t,

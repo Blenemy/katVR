@@ -7,7 +7,7 @@ import { Modal } from '../../Modal/Modal'
 import './ControlBar.scss'
 import { useCallback, useState } from 'react'
 import { FAQComponent } from '../../FAQ/FAQComponent'
-import { HelpNavbar } from '../Navbar/HelpNavbar/HelpNavbar'
+import { HelpMenu } from '../NavigationMenu/HelpMenu/HelpMenu'
 
 interface ControlBarProps {
   t: Translations
@@ -32,7 +32,7 @@ export const ControlBar: React.FC<ControlBarProps> = ({ t }) => {
 
   const handleHelpClick = useCallback(() => {
     setModalContent(
-      <HelpNavbar
+      <HelpMenu
         t={t}
         isDesktop
         handleSwitchNavigationBar={handleSwitchNavigationBar}

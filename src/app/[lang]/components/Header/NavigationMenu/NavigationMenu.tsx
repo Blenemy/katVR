@@ -2,21 +2,23 @@
 
 import { useState } from 'react'
 import cn from 'classnames'
-import './Navbar.scss'
 import { toggleNavbar } from '@/lib/features/navbarSlice'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
-import { DefaultNavbar } from './DefaultNavbar/DefaultNavbar'
-import { LanguageNavbar } from './LanguageNavbar/LanguageNavbar'
-import { HelpNavbar } from './HelpNavbar/HelpNavbar'
 import { Translations } from '@/app/[lang]/types/Translations'
+
 import { FAQComponent } from '../../FAQ/FAQComponent'
 import { NavbarContentKey } from '@/app/[lang]/types/NavigationTypes'
+import { DefaultMenu } from './DefaultMenu/DefaultMenu'
+import { LangaugeMenu } from './LanguageMenu/LanguageMenu'
+import { HelpMenu } from './HelpMenu/HelpMenu'
 
-interface NavbarProps {
+import './NavigationMenu.scss'
+
+interface NavigationMenuProps {
   t: Translations
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ t }) => {
+export const NavigationMenu: React.FC<NavigationMenuProps> = ({ t }) => {
   const dispatch = useAppDispatch()
   const { isOpened } = useAppSelector((state) => state.navbar)
   const [navbarContent, setNavbarContent] =
@@ -35,7 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({ t }) => {
 
   const navbarComponents: Record<NavbarContentKey, JSX.Element> = {
     default: (
-      <DefaultNavbar
+      <DefaultMenu
         t={t}
         handleOnClick={handleNavbar}
         handleLanguageClick={switchNavbarContent('language')}
@@ -44,10 +46,10 @@ export const Navbar: React.FC<NavbarProps> = ({ t }) => {
       />
     ),
     language: (
-      <LanguageNavbar t={t} handleOnClick={switchNavbarContent('default')} />
+      <LangaugeMenu t={t} handleOnClick={switchNavbarContent('default')} />
     ),
     help: (
-      <HelpNavbar
+      <HelpMenu
         t={t}
         handleOnClick={switchNavbarContent('default')}
         handleSwitchNavigationBar={switchNavbarContent('faq')}

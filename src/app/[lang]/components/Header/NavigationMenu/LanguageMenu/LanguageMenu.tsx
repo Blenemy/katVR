@@ -5,12 +5,12 @@ import { Translations } from '@/app/[lang]/types/Translations'
 
 import backImage from '../../../../../../../public/icons/arrow-back.svg'
 
-interface LanguageNavbarProps {
+interface LangaugeMenuProps {
   t: Translations
   handleOnClick: () => void
 }
 
-export const LanguageNavbar: React.FC<LanguageNavbarProps> = ({
+export const LangaugeMenu: React.FC<LangaugeMenuProps> = ({
   t,
   handleOnClick
 }) => {

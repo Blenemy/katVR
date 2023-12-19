@@ -11,7 +11,7 @@ interface DefaultNavbarProps {
   handleFAQClick: () => void
 }
 
-export const DefaultNavbar: React.FC<DefaultNavbarProps> = ({
+export const DefaultMenu: React.FC<DefaultNavbarProps> = ({
   t,
   handleLanguageClick,
   handleOnClick,
