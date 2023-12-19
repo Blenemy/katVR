@@ -1,11 +1,11 @@
 import { ControlBar } from './ControlBar/ControlBar'
 import { Container } from '../Container/Container'
 import { Translations } from '../../types/Translations'
-
-import './Header.scss'
 import { HeaderMainblock } from './HeaderLayout/HeaderMainblock'
 import { HeaderNavbar } from './HeaderLayout/HeaderNavbar'
 import { NavigationMenu } from './NavigationMenu/NavigationMenu'
+
+import './Header.scss'
 interface HeaderProps {
   t: Translations
 }

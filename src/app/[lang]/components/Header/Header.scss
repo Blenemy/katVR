@@ -169,4 +169,10 @@
   .main-block-header {
     margin-bottom: 90px;
   }
+
+  .hero {
+    img {
+      object-fit: contain !important;
+    }
+  }
 }
