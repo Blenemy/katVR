@@ -1,0 +1,25 @@
+@import '../styles/mixins.scss';
+@import '../styles/variables.scss';
+
+.purchase {
+  min-height: 100svh;
+  background: $gradient-color;
+  color: $white;
+
+  &__content {
+    padding: 20px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 33px;
+  }
+}
+
+.navigation-bars {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -20px;
+}
