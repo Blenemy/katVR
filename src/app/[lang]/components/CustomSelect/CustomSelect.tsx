@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
 import cn from 'classnames'
 
@@ -8,6 +8,7 @@ import arrowBlue from '../../../../../public/icons/arrow-more-blue.svg'
 import arrowWhite from '../../../../../public/icons/arrow-more-white.svg'
 
 import './CustomSelect.scss'
+import { useOutsideClick } from '../../hooks/useOutsideClick'
 
 interface CustomSelectProps {
   options: string[]
@@ -20,8 +21,12 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   variant,
   label = 'Quantity'
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null)
+
+  useOutsideClick(wrapperRef, () => setIsOpen(false))
+
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedValue, setSelectedValue] = useState('1')
+  const [selectedValue, setSelectedValue] = useState(options[0])
 
   const handleOptionClick = (value: any) => {
     setSelectedValue(value)
@@ -29,7 +34,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   }
 
   return (
-    <div className="custom-select">
+    <div className="custom-select" ref={wrapperRef}>
       <label htmlFor="custom-select" className="custom-select__label">
         {label}
       </label>
