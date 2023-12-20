@@ -1,4 +1,5 @@
 import { ButtonType } from '../../types/ButtonType'
+
 import './Button.scss'
 
 interface ButtonProps {
@@ -10,7 +11,7 @@ interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({
   text,
   type,
-  classname,
+  classname = '',
   ...props
 }) => {
   return (
