@@ -1,0 +1,13 @@
+.form-purchase {
+  &__price {
+    display: flex;
+    justify-content: center;
+    gap: 75px;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}
