@@ -1,4 +1,5 @@
 import { UnderlinedComponent } from '@/app/[lang]/components/UnderlinedComponent/UnderlinedComponent'
+import { PurchaseForm } from '../../PurchaseForm/PurchaseForm'
 
 export const PurchaseMainContent = () => {
   return (
@@ -8,7 +9,7 @@ export const PurchaseMainContent = () => {
         <UnderlinedComponent text="Pay" active={false} />
         <UnderlinedComponent text="Complete" active={false} />
       </nav>
-      <form className="main-purchase__form form-purchase"></form>
+      <PurchaseForm />
     </section>
   )
 }
