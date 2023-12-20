@@ -10,7 +10,7 @@ interface CustomInputProps extends HTMLAttributes<HTMLInputElement> {
   onChangeFunc?: ChangeEventHandler<HTMLInputElement>
   id: string
   label: string
-  error?: string
+  error?: string | false | undefined
 }
 
 export const CustomInput: React.FC<CustomInputProps> = ({
