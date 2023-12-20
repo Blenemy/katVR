@@ -7,7 +7,7 @@
   gap: 4px;
 
   &__label {
-    color: $dark-grey;
+    color: $text-color;
     @include typography(400, 14px, 150%);
   }
 
@@ -15,6 +15,7 @@
     width: 100%;
     border-bottom: 1px solid $dark-grey;
     color: $white;
+    background-color: transparent;
   }
 }
 
