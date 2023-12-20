@@ -1,3 +1,4 @@
+import { Button } from '../../components/Button/Button'
 import { CustomInput } from '../../components/CustomInput/CustomInput'
 import { CustomSelect } from '../../components/CustomSelect/CustomSelect'
 import { PriceBar } from '../../components/PriceBar/PriceBar'
@@ -62,6 +63,7 @@ export const PurchaseForm = () => {
             label="Shipping Adress 2"
             required={false}
           />
+          <Button type="submit" text="Purchase" />
         </section>
       </div>
     </form>
