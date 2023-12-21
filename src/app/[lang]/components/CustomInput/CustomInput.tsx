@@ -1,4 +1,4 @@
-import { HTMLAttributes, ChangeEventHandler } from 'react'
+import { HTMLAttributes, ChangeEventHandler, ChangeEvent } from 'react'
 import cn from 'classnames'
 import './CustomInput.scss'
 
@@ -7,6 +7,7 @@ interface CustomInputProps extends HTMLAttributes<HTMLInputElement> {
   type: string
   required: boolean
   value?: string | undefined | number
+  inputType?: 'text' | 'card-number' | 'expiration-date'
   onChangeFunc?: ChangeEventHandler<HTMLInputElement>
   id: string
   label: string
@@ -22,8 +23,26 @@ export const CustomInput: React.FC<CustomInputProps> = ({
   id,
   label,
   required,
+  inputType = 'text',
   ...props
 }) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (inputType === 'expiration-date') {
+      let { value } = event.target
+      const numbersOnly = value.replace(/[^\d]/g, '')
+      const month = numbersOnly.substring(0, 2)
+      const year = numbersOnly.substring(2, 4)
+
+      value = month + (month.length === 2 ? ' / ' : '') + year
+
+      event.target.value = value
+
+      if (onChangeFunc) onChangeFunc(event)
+    } else {
+      if (onChangeFunc) onChangeFunc(event)
+    }
+  }
+
   return (
     <article className="custom-input">
       <label
@@ -42,7 +61,7 @@ export const CustomInput: React.FC<CustomInputProps> = ({
         })}
         required={required}
         value={value}
-        onChange={onChangeFunc}
+        onChange={handleChange}
         autoComplete="off"
         id={id}
         {...props}
