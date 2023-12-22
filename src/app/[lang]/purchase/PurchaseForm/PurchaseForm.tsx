@@ -3,11 +3,11 @@
 import { Button } from '../../components/Button/Button'
 import { CustomSelect } from '../../components/CustomSelect/CustomSelect'
 import { usePuchaseForm } from '../../hooks/usePuchaseForm'
-// import { StepOneForm } from './StepOneForm/StepOneForm'
 
-import './PurchaseForm.scss'
 import { PriceBar } from '../../components/PriceBar/PriceBar'
 import { StepTwoForm } from './StepTwoForm/StepTwoForm'
+
+import './PurchaseForm.scss'
 
 const OPTIONS = ['1', '2', '3', '4']
 
