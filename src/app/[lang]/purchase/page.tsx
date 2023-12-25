@@ -7,7 +7,8 @@ import { PurchaseHeader } from './PurchaseLayout/PurchaseHeader/PurchaseHeader'
 import { PurchaseMainContent } from './PurchaseLayout/PurchaseMainContent/PurchaseMainContent'
 
 const Purchase: React.FC<{ params: { lang: string } }> = async ({ params }) => {
-  // const t = await getDictionary(params.lang)
+  const t = await getDictionary(params.lang)
+  console.log(t)
 
   return (
     <section className="purchase">
