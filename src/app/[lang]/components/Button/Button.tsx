@@ -1,8 +1,9 @@
+import { HTMLAttributes } from 'react'
 import { ButtonType } from '../../types/ButtonType'
 
 import './Button.scss'
 
-interface ButtonProps {
+interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   text: string
   type: ButtonType
   classname?: string
