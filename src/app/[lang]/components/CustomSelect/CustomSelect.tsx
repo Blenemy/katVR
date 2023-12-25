@@ -14,12 +14,14 @@ interface CustomSelectProps {
   options: string[]
   variant: 'price' | 'formField'
   label?: string
+  onChangeFunc: (payload: number) => void
 }
 
 export const CustomSelect: React.FC<CustomSelectProps> = ({
   options,
   variant,
-  label = 'Quantity'
+  label = 'Quantity',
+  onChangeFunc
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null)
 
@@ -28,9 +30,10 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   const [isOpen, setIsOpen] = useState(false)
   const [selectedValue, setSelectedValue] = useState(options[0])
 
-  const handleOptionClick = (value: any) => {
+  const handleOptionClick = (value: string) => {
     setSelectedValue(value)
     setIsOpen(false)
+    onChangeFunc(+value)
   }
 
   return (
