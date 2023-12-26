@@ -55,7 +55,7 @@ export const ControlBar: React.FC<ControlBarProps> = ({ t }) => {
 
   return (
     <>
-      <section className="header__control-bar control-bar">
+      <section className="hero__control-bar control-bar">
         <article className="control-bar__left">
           <p className="control-bar__FAQ" onClick={handleFAQClick}>
             {t['control-bar'].faq}

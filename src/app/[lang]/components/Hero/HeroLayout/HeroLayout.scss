@@ -1,0 +1,23 @@
+@import '../../../styles/mixins.scss';
+
+@include onTablet {
+  .main-block-hero {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    &__article_image {
+      flex: 1 1 55%;
+    }
+
+    &__article_content {
+      flex: 1 1 45%;
+    }
+  }
+}
+
+@include onDesktop {
+  .main-block-hero {
+    margin-bottom: 90px;
+  }
+}

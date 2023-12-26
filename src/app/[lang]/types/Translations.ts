@@ -40,7 +40,7 @@ interface HelpNavbar {
 }
 
 export interface Translations {
-  header: Header
+  hero: Header
   navbar: Navbar
   'control-bar': Controlbar
   'language-selector': Language

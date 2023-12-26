@@ -16,10 +16,10 @@ export const BurgerIcon: React.FC = () => {
   }
 
   return (
-    <div className="header__logo header__logo_navbar">
+    <div className="hero__logo hero__logo_navbar">
       <Image
         alt="burgerImage"
-        className="header__img"
+        className="hero__img"
         onClick={handleOnClick}
         src={isOpened ? cross : burgerImage}
       />

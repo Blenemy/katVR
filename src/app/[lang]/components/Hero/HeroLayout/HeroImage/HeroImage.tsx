@@ -10,8 +10,8 @@ export const HeroImage = () => {
   )
 
   return (
-    <div className="_img-container header__hero hero">
-      <Image src={images[currentImage]} alt="hero" className="hero__img" />
+    <div className="_img-container hero__mainImage">
+      <Image src={images[currentImage]} alt="hero" className="hero__mainImg" />
     </div>
   )
 }

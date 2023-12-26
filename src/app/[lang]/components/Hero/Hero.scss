@@ -1,0 +1,102 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.hero {
+  min-height: 100svh;
+  background: $gradient-color;
+  color: $white;
+
+  &__content {
+    padding: 20px;
+  }
+
+  &__main-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    @include typography(900, 26px, 34px);
+    margin-bottom: 17px;
+  }
+
+  &__subtitle {
+    @include typography(500, 16px, 24px);
+    color: $text-color;
+    margin-bottom: 8px;
+  }
+
+  &__price {
+    text-align: center;
+    @include typography(500, 18px, 22px);
+    margin-bottom: 20px;
+  }
+
+  &__video-play {
+    margin-bottom: 32px;
+    width: 248px;
+    height: 69px;
+    align-self: center;
+  }
+
+  &__button {
+    width: 100%;
+    background-color: $contrast-blue;
+  }
+
+  &__mainImage {
+    padding-bottom: 50%;
+  }
+}
+
+@include onTablet {
+  .hero {
+    &__subtitle {
+      margin-bottom: 14px;
+    }
+
+    &__price {
+      text-align: left;
+    }
+
+    &__button_down {
+      display: none;
+    }
+  }
+}
+
+@include onDesktop {
+  .hero {
+    &__content {
+      padding: 64px 110px;
+    }
+
+    &__title {
+      @include typography(900, 46px, 130%);
+      margin-bottom: 19px;
+    }
+
+    &__text-wrapper {
+      padding-left: 50px;
+      max-width: 370px;
+    }
+
+    &__subtitle {
+      @include typography(500, 16px, 24px);
+      color: $text-color;
+      margin-bottom: 5px;
+    }
+
+    &__video-play {
+      align-self: start;
+    }
+
+    &__logo_navbar {
+      display: none;
+    }
+
+    &__mainImg {
+      object-fit: contain !important;
+    }
+  }
+}
