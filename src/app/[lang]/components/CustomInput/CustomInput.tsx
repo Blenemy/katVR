@@ -11,6 +11,7 @@ interface CustomInputProps extends HTMLAttributes<HTMLInputElement> {
   onChangeFunc?: ChangeEventHandler<HTMLInputElement>
   id: string
   label: string
+  classname?: string
   error?: string | false | undefined
 }
 
@@ -24,6 +25,7 @@ export const CustomInput: React.FC<CustomInputProps> = memo(
     id,
     label,
     required,
+    classname = '',
     inputType = 'text',
     ...props
   }) => {
@@ -45,7 +47,7 @@ export const CustomInput: React.FC<CustomInputProps> = memo(
     }
 
     return (
-      <article className="custom-input">
+      <article className={`custom-input ${classname}`}>
         <label
           className={cn('custom-input__label', {
             'error-label': error

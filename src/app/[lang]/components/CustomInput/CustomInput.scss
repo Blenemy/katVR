@@ -26,3 +26,17 @@
 .error-label {
   color: #860404;
 }
+
+@include onTablet {
+  .custom-input {
+    gap: 19px;
+
+    &__label {
+      @include typography(400, 18px, 150%);
+    }
+
+    &__field {
+      @include typography(400, 18px, 150%);
+    }
+  }
+}
