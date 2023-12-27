@@ -8,6 +8,8 @@
 
   &__content {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
   }
 
   &__header {
@@ -16,10 +18,4 @@
     justify-content: space-between;
     margin-bottom: 33px;
   }
-}
-
-.navigation-bars {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 -20px;
 }

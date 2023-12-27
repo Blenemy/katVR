@@ -1,0 +1,27 @@
+@import '../../../styles/mixins.scss';
+
+.main-purchase {
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    display: none;
+  }
+}
+
+@include onTablet {
+  .main-purchase {
+    &__image {
+      display: block;
+    }
+
+    &__content-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__quantity-selector {
+      align-self: center;
+    }
+  }
+}
