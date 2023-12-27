@@ -16,6 +16,7 @@ interface CustomSelectProps {
   variant: 'price' | 'formField'
   label: string
   name: string
+  classname?: string,
   onChangeFunc: (value: string) => void
   value: string | number
   error?: string | boolean
@@ -28,6 +29,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = memo(
     label = 'Quantity',
     name,
     onChangeFunc,
+    classname = '',
     value,
     error
   }) => {
@@ -47,7 +49,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = memo(
     }
 
     return (
-      <div className="custom-select" ref={wrapperRef}>
+      <div className={`custom-select ${classname}`} ref={wrapperRef}>
         <label htmlFor={name} className="custom-select__label">
           {label}
         </label>
