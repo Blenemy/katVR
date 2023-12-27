@@ -1,0 +1,21 @@
+@import '../../../styles/mixins.scss';
+
+.step-one-purchase-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+@include onTablet {
+  .step-one-purchase-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 19px;
+    row-gap: 40px;
+
+    &__field {
+      flex: 0 0 calc(50% - 19px);
+    }
+  }
+}

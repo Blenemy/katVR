@@ -4,6 +4,8 @@ import { PurchaseFormValues } from '@/app/[lang]/types/PurchaseForm'
 import { FormikProps } from 'formik'
 import { useCallback } from 'react'
 
+import './StepOneForm.scss'
+
 const OPTIONS_CONTRIES = ['Ukraine', 'Poland', 'Great Britain', 'Canada', 'USA']
 const OPTIONS_CITIES = ['Kyiv', 'Warsaw', 'London', 'Ottawa', 'Washington']
 
@@ -21,7 +23,7 @@ export const StepOneForm = ({
 
   return (
     <>
-      <section className="form-purchase__fields">
+      <section className="step-one-purchase-form">
         <CustomInput
           name="First Name"
           type="text"
@@ -32,6 +34,7 @@ export const StepOneForm = ({
           onBlur={formik.handleBlur}
           value={formik.values['First Name']}
           error={formik.touched['First Name'] && formik.errors['First Name']}
+          classname="step-one-purchase-form__field"
         />
         <CustomInput
           name="Last Name"
@@ -43,6 +46,7 @@ export const StepOneForm = ({
           onBlur={formik.handleBlur}
           value={formik.values['Last Name']}
           error={formik.touched['Last Name'] && formik.errors['Last Name']}
+          classname="step-one-purchase-form__field"
         />
         <CustomInput
           name="Email"
@@ -54,6 +58,7 @@ export const StepOneForm = ({
           onBlur={formik.handleBlur}
           value={formik.values.Email}
           error={formik.touched.Email && formik.errors.Email}
+          classname="step-one-purchase-form__field"
         />
         <CustomInput
           name="PhoneNumber"
@@ -65,6 +70,7 @@ export const StepOneForm = ({
           onBlur={formik.handleBlur}
           value={formik.values.PhoneNumber}
           error={formik.touched.PhoneNumber && formik.errors.PhoneNumber}
+          classname="step-one-purchase-form__field"
         />
         <CustomSelect
           options={OPTIONS_CONTRIES}
@@ -74,6 +80,7 @@ export const StepOneForm = ({
           onChangeFunc={handleSelectChange('country')}
           value={formik.values.country}
           error={formik.touched.country && formik.errors.country}
+          classname="step-one-purchase-form__field"
         />
         <CustomSelect
           options={OPTIONS_CITIES}
@@ -83,6 +90,7 @@ export const StepOneForm = ({
           onChangeFunc={handleSelectChange('city')}
           value={formik.values.city}
           error={formik.touched.city && formik.errors.city}
+          classname="step-one-purchase-form__field"
         />
         <CustomInput
           name="Shipping Adress"
@@ -97,6 +105,7 @@ export const StepOneForm = ({
             formik.touched['Shipping Adress'] &&
             formik.errors['Shipping Adress']
           }
+          classname="step-one-purchase-form__field"
         />
         <CustomInput
           name="Shipping Adress 2"
@@ -111,6 +120,7 @@ export const StepOneForm = ({
             formik.touched['Shipping Adress 2'] &&
             formik.errors['Shipping Adress 2']
           }
+          classname="step-one-purchase-form__field"
         />
       </section>
     </>
