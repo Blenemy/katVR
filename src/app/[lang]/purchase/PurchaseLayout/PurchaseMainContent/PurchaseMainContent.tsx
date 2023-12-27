@@ -33,6 +33,7 @@ export const PurchaseMainContent = () => {
   return (
     <section className="purchase__main main-purchase">
       <PurchaseNavigation currentStep={currentStep} />
+      <PurchaseNavigation currentStep={currentStep} design="Desktop" />
       <div className="main-purchase__content-wrapper">
         <div className="main-purchase__quantity-selector">
           <div className="main-purchase__image">
@@ -44,7 +45,7 @@ export const PurchaseMainContent = () => {
               height={277}
             />
           </div>
-          <div className="form-purchase__price">
+          <div className="main-purchase__price">
             <CustomSelect
               options={OPTIONS}
               variant="price"

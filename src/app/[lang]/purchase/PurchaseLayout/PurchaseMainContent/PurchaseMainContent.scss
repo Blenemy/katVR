@@ -20,8 +20,37 @@
       flex-direction: column;
     }
 
-    &__quantity-selector {
+    &__image {
       align-self: center;
+    }
+
+    &__quantity-selector {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__price {
+      display: flex;
+      gap: 75px;
+    }
+  }
+}
+
+@include onDesktop {
+  .main-purchase {
+    &__image {
+      display: block;
+    }
+
+    &__content-wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    &__quantity-selector {
+      flex: 1 1 50%;
+      align-items: center;
     }
   }
 }

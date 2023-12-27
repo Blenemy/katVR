@@ -1,0 +1,20 @@
+@import '../../../styles/mixins.scss';
+
+.header-purchase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 33px;
+}
+
+@include onTablet {
+  .header-purchase {
+    margin-bottom: 40px;
+  }
+}
+
+@include onDesktop {
+  .header-purchase {
+    display: none;
+  }
+}
