@@ -1,7 +1,13 @@
 import { CardInput } from '@/app/[lang]/components/CardInput/CardInput'
 import { CustomInput } from '@/app/[lang]/components/CustomInput/CustomInput'
+import { PurchaseFormValues } from '@/app/[lang]/types/PurchaseForm'
+import { FormikProps } from 'formik'
 
-export const StepTwoForm = ({ formik }: any) => {
+export const StepTwoForm = ({
+  formik
+}: {
+  formik: FormikProps<PurchaseFormValues>
+}) => {
   return (
     <section className="form-purchase__fields">
       <CardInput required label="Card Number" />

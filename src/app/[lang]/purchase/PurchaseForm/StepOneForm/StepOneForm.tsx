@@ -1,13 +1,23 @@
 import { CustomInput } from '@/app/[lang]/components/CustomInput/CustomInput'
 import { CustomSelect } from '@/app/[lang]/components/CustomSelect/CustomSelect'
+import { PurchaseFormValues } from '@/app/[lang]/types/PurchaseForm'
+import { FormikProps } from 'formik'
+import { useCallback } from 'react'
 
 const OPTIONS_CONTRIES = ['Ukraine', 'Poland', 'Great Britain', 'Canada', 'USA']
 const OPTIONS_CITIES = ['Kyiv', 'Warsaw', 'London', 'Ottawa', 'Washington']
 
-export const StepOneForm = ({ formik }: any) => {
-  const handleSelectChange = (name: string) => (value: string) => {
-    formik.setFieldValue(name, value)
-  }
+export const StepOneForm = ({
+  formik
+}: {
+  formik: FormikProps<PurchaseFormValues>
+}) => {
+  const handleSelectChange = useCallback(
+    (name: string) => (value: string) => {
+      formik.setFieldValue(name, value)
+    },
+    [formik]
+  )
 
   return (
     <>

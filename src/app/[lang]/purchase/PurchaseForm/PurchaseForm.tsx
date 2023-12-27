@@ -1,4 +1,4 @@
-'use client'
+import { useCallback } from 'react'
 
 import { Button } from '../../components/Button/Button'
 import { CustomSelect } from '../../components/CustomSelect/CustomSelect'
@@ -7,24 +7,33 @@ import { StepOneForm } from './StepOneForm/StepOneForm'
 import { StepTwoForm } from './StepTwoForm/StepTwoForm'
 
 import './PurchaseForm.scss'
-import { useMultiStepForm } from '../../hooks/useMultiStepForm'
+import { FormikProps } from 'formik'
+import { PurchaseFormValues } from '../../types/PurchaseForm'
 
 const OPTIONS = ['1', '2', '3', '4']
 const BASE_PRICE = 1200
 
-export const PurchaseForm = () => {
-  const { formik, handleNextStep, currentStep } = useMultiStepForm()
+interface PurchaseFormProps {
+  currentStep: number
+  handleNextStep: () => Promise<void>
+  formik: FormikProps<PurchaseFormValues>
+}
 
-  const steps = [
-    <StepOneForm formik={formik} key="StepOne" />,
-    <StepTwoForm formik={formik} key="StepTwo" />
-  ]
+export const PurchaseForm: React.FC<PurchaseFormProps> = ({
+  formik,
+  currentStep,
+  handleNextStep
+}) => {
+  const StepComponent = [StepOneForm, StepTwoForm][currentStep]
 
   const totalValue = formik.values.quantity * BASE_PRICE
 
-  const handleSelectChange = (name: string) => (value: string) => {
-    formik.setFieldValue(name, value)
-  }
+  const handleSelectChange = useCallback(
+    (name: string) => (value: string) => {
+      formik.setFieldValue(name, value)
+    },
+    [formik]
+  )
 
   return (
     <form
@@ -44,7 +53,7 @@ export const PurchaseForm = () => {
           />
           <PriceBar totalValue={totalValue} />
         </section>
-        {steps[currentStep]}
+        <StepComponent formik={formik} />
         <Button
           type="submit"
           text={currentStep === 0 ? 'Next Page' : 'Purchase'}

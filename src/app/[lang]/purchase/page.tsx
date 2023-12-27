@@ -2,13 +2,13 @@ import { getDictionary } from '@/app/getDectionaries'
 
 import { Container } from '../components/Container/Container'
 
-import './Purchase.scss'
 import { PurchaseHeader } from './PurchaseLayout/PurchaseHeader/PurchaseHeader'
 import { PurchaseMainContent } from './PurchaseLayout/PurchaseMainContent/PurchaseMainContent'
 
+import './Purchase.scss'
+
 const Purchase: React.FC<{ params: { lang: string } }> = async ({ params }) => {
   const t = await getDictionary(params.lang)
-  console.log(t)
 
   return (
     <section className="purchase">

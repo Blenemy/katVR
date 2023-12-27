@@ -1,8 +1,15 @@
-import { useFormik } from 'formik'
-import { useState } from 'react'
+import { FormikProps, useFormik } from 'formik'
+import { useCallback, useState } from 'react'
 import { purchaseValidationStepOne } from '../validationSchemas/purchaseValidation_step_one'
+import { PurchaseFormValues } from '../types/PurchaseForm'
 
-export const useMultiStepForm = () => {
+type TReturnProps = {
+  formik: FormikProps<PurchaseFormValues>
+  handleNextStep: () => Promise<void>
+  currentStep: number
+}
+
+export const useMultiStepForm = (): TReturnProps => {
   const [currentStep, setCurrentStep] = useState(0)
 
   const formik = useFormik({
@@ -15,7 +22,10 @@ export const useMultiStepForm = () => {
       'Shipping Adress': '',
       'Shipping Adress 2': '',
       country: 'Choose a country',
-      city: 'Choose a city'
+      city: 'Choose a city',
+      'Card Holder Name': '',
+      'Expiration Date': '',
+      CVV: ''
     },
     validationSchema: purchaseValidationStepOne,
     validateOnBlur: true,
@@ -24,12 +34,12 @@ export const useMultiStepForm = () => {
     }
   })
 
-  const handleNextStep = async () => {
+  const handleNextStep = useCallback(async () => {
     const errors = await formik.validateForm()
     if (Object.keys(errors).length === 0) {
-      setCurrentStep(currentStep + 1)
+      setCurrentStep((prev) => prev + 1)
     }
-  }
+  }, [formik])
 
   return { formik, handleNextStep, currentStep }
 }
