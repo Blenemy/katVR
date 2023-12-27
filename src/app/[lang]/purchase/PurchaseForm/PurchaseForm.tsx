@@ -24,6 +24,7 @@ export const PurchaseForm: React.FC<PurchaseFormProps> = ({
   currentStep,
   handleNextStep
 }) => {
+  // TODO: add last purchase-form component
   const StepComponent = [StepOneForm, StepTwoForm][currentStep]
 
   const totalValue = formik.values.quantity * BASE_PRICE
