@@ -1,9 +1,14 @@
 import { CustomInput } from '@/app/[lang]/components/CustomInput/CustomInput'
 import { CustomSelect } from '@/app/[lang]/components/CustomSelect/CustomSelect'
 
-const OPTIONS = ['1', '2', '3', '4']
+const OPTIONS_CONTRIES = ['Ukraine', 'Poland', 'Great Britain', 'Canada', 'USA']
+const OPTIONS_CITIES = ['Kyiv', 'Warsaw', 'London', 'Ottawa', 'Washington']
 
 export const StepOneForm = ({ formik }: any) => {
+  const handleSelectChange = (name: string) => (value: string) => {
+    formik.setFieldValue(name, value)
+  }
+
   return (
     <>
       <section className="form-purchase__fields">
@@ -51,8 +56,24 @@ export const StepOneForm = ({ formik }: any) => {
           value={formik.values.PhoneNumber}
           error={formik.touched.PhoneNumber && formik.errors.PhoneNumber}
         />
-        <CustomSelect options={OPTIONS} variant="formField" label="Country*" />
-        <CustomSelect options={OPTIONS} variant="formField" label="City*" />
+        <CustomSelect
+          options={OPTIONS_CONTRIES}
+          variant="formField"
+          label="Country*"
+          name="country"
+          onChangeFunc={handleSelectChange('country')}
+          value={formik.values.country}
+          error={formik.touched.country && formik.errors.country}
+        />
+        <CustomSelect
+          options={OPTIONS_CITIES}
+          variant="formField"
+          label="City*"
+          name="city"
+          onChangeFunc={handleSelectChange('city')}
+          value={formik.values.city}
+          error={formik.touched.city && formik.errors.city}
+        />
         <CustomInput
           name="Shipping Adress"
           type="text"
