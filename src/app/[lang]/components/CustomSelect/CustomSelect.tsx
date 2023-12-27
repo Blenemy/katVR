@@ -7,38 +7,47 @@ import cn from 'classnames'
 import arrowBlue from '../../../../../public/icons/arrow-more-blue.svg'
 import arrowWhite from '../../../../../public/icons/arrow-more-white.svg'
 
-import './CustomSelect.scss'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
+
+import './CustomSelect.scss'
 
 interface CustomSelectProps {
   options: string[]
   variant: 'price' | 'formField'
-  label?: string
-  onChangeFunc: (payload: number) => void
+  label: string
+  name: string
+  onChangeFunc: (value: string) => void
+  value: string | number
+  error?: string | boolean
 }
 
 export const CustomSelect: React.FC<CustomSelectProps> = ({
   options,
   variant,
   label = 'Quantity',
-  onChangeFunc
+  name,
+  onChangeFunc,
+  value,
+  error
 }) => {
-  const wrapperRef = useRef<HTMLDivElement>(null)
+  const [isOpen, setIsOpen] = useState(false)
+  const [selectedValue, setSelectedValue] = useState(value)
 
+  const wrapperRef = useRef<HTMLDivElement>(null)
   useOutsideClick(wrapperRef, () => setIsOpen(false))
 
-  const [isOpen, setIsOpen] = useState(false)
-  const [selectedValue, setSelectedValue] = useState(options[0])
-
-  const handleOptionClick = (value: string) => {
-    setSelectedValue(value)
+  const handleOptionClick = (payloadValue: string) => {
+    setSelectedValue(payloadValue)
     setIsOpen(false)
-    onChangeFunc(+value)
+
+    if (onChangeFunc) {
+      onChangeFunc(payloadValue)
+    }
   }
 
   return (
     <div className="custom-select" ref={wrapperRef}>
-      <label htmlFor="custom-select" className="custom-select__label">
+      <label htmlFor={name} className="custom-select__label">
         {label}
       </label>
       <div
@@ -63,20 +72,21 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
               formField: variant === 'formField'
             })}
           >
-            {options.map((value) => (
+            {options.map((optionValue) => (
               <div
-                key={value}
+                key={optionValue}
                 className={cn('custom-select__option', {
                   'formField formField__padding': variant === 'formField'
                 })}
-                onClick={() => handleOptionClick(value)}
+                onClick={() => handleOptionClick(optionValue)}
               >
-                {value}
+                {optionValue}
               </div>
             ))}
           </div>
         )}
       </div>
+      {error && <div className="custom-select__error">{error}</div>}
     </div>
   )
 }
