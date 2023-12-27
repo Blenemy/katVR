@@ -13,5 +13,11 @@ export const purchaseValidationStepOne = Yup.object({
   //   'Невірний формат номеру. Приклад: +380#########'
   // ),
   'Shipping Adress': Yup.string().required(),
-  'Shipping Adress 2': Yup.string()
+  'Shipping Adress 2': Yup.string(),
+  country: Yup.string()
+    .notOneOf(['Choose a country'], 'You must select a country')
+    .required('Country is required'),
+  city: Yup.string()
+    .notOneOf(['Choose a city'], 'You must select a city')
+    .required('City is required')
 })
