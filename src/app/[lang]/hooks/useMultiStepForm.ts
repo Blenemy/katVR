@@ -1,6 +1,6 @@
 import { FormikProps, useFormik } from 'formik'
 import { useCallback, useState } from 'react'
-import { purchaseValidationStepOne } from '../validationSchemas/purchaseValidation_step_one'
+import { purchaseValidationStepOne } from '../validationSchemas/purchaseValidationStepOne'
 import { PurchaseFormValues } from '../types/PurchaseForm'
 
 type TReturnProps = {
