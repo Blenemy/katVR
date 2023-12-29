@@ -1,11 +1,6 @@
 @import '../../styles//mixins.scss';
 
 .form-purchase {
-  &__credentials {
-    display: flex;
-    gap: 30px;
-  }
-
   &__button {
     width: 100%;
   }

@@ -17,7 +17,7 @@ interface PurchaseFormProps {
 export const PurchaseForm: React.FC<PurchaseFormProps> = memo(
   ({ formik, currentStep, handleNextStep }) => {
     // TODO: add last purchase-form component
-    const StepComponent = [StepOneForm, StepTwoForm][currentStep]
+    const StepComponent = [StepTwoForm, StepOneForm][currentStep]
 
     return (
       <form

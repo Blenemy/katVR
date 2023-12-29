@@ -3,13 +3,15 @@ import { CustomInput } from '@/app/[lang]/components/CustomInput/CustomInput'
 import { PurchaseFormValues } from '@/app/[lang]/types/PurchaseForm'
 import { FormikProps } from 'formik'
 
+import './StepTwoForm.scss'
+
 export const StepTwoForm = ({
   formik
 }: {
   formik: FormikProps<PurchaseFormValues>
 }) => {
   return (
-    <section className="form-purchase__fields">
+    <section className="step-two-purchase-form">
       <CardInput required label="Card Number" />
       <CustomInput
         name="Card Holder Name"
@@ -24,8 +26,9 @@ export const StepTwoForm = ({
           formik.touched['Card Holder Name'] &&
           formik.errors['Card Holder Name']
         }
+        classname="step-two-purchase-form__field"
       />
-      <section className="form-purchase__credentials">
+      <section className="step-two-purchase-form__credentials">
         <CustomInput
           name="Expiration Date"
           type="text"

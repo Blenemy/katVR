@@ -1,0 +1,23 @@
+@import '../../../styles/mixins.scss';
+
+.step-two-purchase-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 30px;
+
+  &__credentials {
+    display: flex;
+    gap: 30px;
+  }
+}
+
+@include onDesktop {
+  .step-two-purchase-form {
+    margin-bottom: 70px;
+
+    &__field {
+      flex: 0 0 calc(50% - 19px);
+    }
+  }
+}
