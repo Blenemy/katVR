@@ -40,6 +40,7 @@
   .main-purchase {
     &__image {
       display: block;
+      margin-bottom: 150px;
     }
 
     &__content-wrapper {
@@ -51,6 +52,13 @@
     &__quantity-selector {
       flex: 1 1 50%;
       align-items: center;
+      margin-left: -16px;
+    }
+
+    &__price {
+      display: flex;
+      align-self: flex-start;
+      gap: 86px;
     }
   }
 }

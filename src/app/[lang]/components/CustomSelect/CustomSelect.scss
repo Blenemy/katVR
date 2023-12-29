@@ -3,6 +3,7 @@
 
 $select-width: 90px;
 $select-height: 41px;
+$select-height-desktop: 47px;
 
 .custom-select {
   color: #fff;
@@ -78,5 +79,24 @@ $select-height: 41px;
 
   &__padding {
     padding: 0 20px;
+  }
+}
+
+@include onDesktop {
+  .custom-select {
+    &__display {
+      height: $select-height-desktop;
+    }
+
+    &__arrow {
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &__option {
+      height: $select-height-desktop;
+    }
   }
 }

@@ -26,3 +26,12 @@
     }
   }
 }
+
+@include onTablet {
+  .form-purchase {
+    &__button {
+      width: 200px;
+      align-self: flex-start;
+    }
+  }
+}

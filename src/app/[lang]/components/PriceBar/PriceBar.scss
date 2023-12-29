@@ -18,3 +18,11 @@
     @include typography(500, 26px, 32px);
   }
 }
+
+@include onDesktop {
+  .price-bar {
+    &__price {
+      @include typography(500, 36px, 43px);
+    }
+  }
+}
