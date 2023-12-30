@@ -40,3 +40,16 @@
     }
   }
 }
+@include onDesktop {
+  .custom-input {
+    gap: 10px;
+
+    &__label {
+      @include typography(400, 16px, 18px);
+    }
+
+    &__field {
+      @include typography(400, 16px, 18px);
+    }
+  }
+}
