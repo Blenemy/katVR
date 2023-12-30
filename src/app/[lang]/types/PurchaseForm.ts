@@ -8,6 +8,7 @@ export interface PurchaseFormValues {
   'Shipping Adress 2': string
   country: string
   city: string
+  cardNumber: string
   'Card Holder Name': string
   'Expiration Date': string
   CVV: string

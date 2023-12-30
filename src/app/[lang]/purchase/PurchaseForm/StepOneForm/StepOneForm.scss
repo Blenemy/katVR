@@ -19,3 +19,9 @@
     }
   }
 }
+
+@include onDesktop {
+  .step-one-purchase-form {
+    margin-bottom: 0;
+  }
+}
