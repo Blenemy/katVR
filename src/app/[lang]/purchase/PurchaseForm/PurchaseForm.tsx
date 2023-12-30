@@ -1,12 +1,19 @@
-import { memo } from 'react'
+import { ReactElement, memo, useCallback } from 'react'
+import Image from 'next/image'
 
 import { Button } from '../../components/Button/Button'
 import { StepOneForm } from './StepOneForm/StepOneForm'
 import { StepTwoForm } from './StepTwoForm/StepTwoForm'
+import { CustomSelect } from '../../components/CustomSelect/CustomSelect'
+import { PriceBar } from '../../components/PriceBar/PriceBar'
+import { FormikProps } from 'formik'
+
+import { PurchaseFormValues } from '../../types/PurchaseForm'
+
+import { useAppSelector } from '@/lib/hooks'
+import { StepThreeForm } from './StepThreeForm/StepThreeForm'
 
 import './PurchaseForm.scss'
-import { FormikProps } from 'formik'
-import { PurchaseFormValues } from '../../types/PurchaseForm'
 
 interface PurchaseFormProps {
   currentStep: number
@@ -14,26 +21,76 @@ interface PurchaseFormProps {
   formik: FormikProps<PurchaseFormValues>
 }
 
+const OPTIONS = ['1', '2', '3', '4']
+const BASE_PRICE = 1200
+
 export const PurchaseForm: React.FC<PurchaseFormProps> = memo(
   ({ formik, currentStep, handleNextStep }) => {
-    // TODO: add last purchase-form component
-    const StepComponent = [StepOneForm, StepTwoForm][currentStep]
+    const { images, currentImage } = useAppSelector(
+      (state) => state.heroImageSlice
+    )
+
+    const totalValue = formik.values.quantity * BASE_PRICE
+
+    const handleSelectChange = useCallback(
+      (name: string) => (value: string) => {
+        formik.setFieldValue(name, value)
+      },
+      [formik]
+    )
+
+    const stepComponents: { [key: number]: ReactElement | null } = {
+      0: <StepOneForm formik={formik} />,
+      1: <StepTwoForm formik={formik} />
+    }
 
     return (
-      <form
-        className="main-purchase__form form-purchase"
-        onSubmit={formik.handleSubmit}
-      >
-        <div className="form-purchase__content">
-          <StepComponent formik={formik} />
-          <Button
-            type="submit"
-            text={currentStep === 0 ? 'Next Page' : 'Purchase'}
-            classname="form-purchase__button"
-            onClick={handleNextStep}
-          />
-        </div>
-      </form>
+      <div className="main-purchase__content-wrapper">
+        {currentStep < 2 ? (
+          <>
+            <div className="main-purchase__quantity-selector">
+              <div className="main-purchase__image">
+                <Image
+                  alt="purchase-choice"
+                  src={images[currentImage]}
+                  className="main-purchase__img"
+                  width={524}
+                  height={277}
+                />
+              </div>
+              <div className="main-purchase__price">
+                <CustomSelect
+                  options={OPTIONS}
+                  variant="price"
+                  name="country"
+                  onChangeFunc={handleSelectChange('quantity')}
+                  value={formik.values.quantity}
+                  error={formik.touched.quantity && formik.errors.quantity}
+                  label="Quantity"
+                />
+                <PriceBar totalValue={totalValue} />
+              </div>
+            </div>
+
+            <form
+              className="main-purchase__form form-purchase"
+              onSubmit={formik.handleSubmit}
+            >
+              <div className="form-purchase__content">
+                {stepComponents[currentStep]}
+                <Button
+                  type="submit"
+                  text={currentStep === 0 ? 'Next Page' : 'Purchase'}
+                  classname="form-purchase__button"
+                  onClick={handleNextStep}
+                />
+              </div>
+            </form>
+          </>
+        ) : (
+          <StepThreeForm />
+        )}
+      </div>
     )
   }
 )

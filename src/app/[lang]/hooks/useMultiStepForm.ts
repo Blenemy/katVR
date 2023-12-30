@@ -9,6 +9,15 @@ type TReturnProps = {
   currentStep: number
 }
 
+const sendDataToServer = (): Promise<void> => {
+  return new Promise((resolve) => {
+    // Имитация задержки сетевого запроса, например, 2 секунды
+    setTimeout(() => {
+      resolve() // разрешаем промис после задержки
+    }, 2000)
+  })
+}
+
 export const useMultiStepForm = (): TReturnProps => {
   const [currentStep, setCurrentStep] = useState(0)
 
@@ -23,6 +32,7 @@ export const useMultiStepForm = (): TReturnProps => {
       'Shipping Adress 2': '',
       country: 'Choose a country',
       city: 'Choose a city',
+      cardNumber: '',
       'Card Holder Name': '',
       'Expiration Date': '',
       CVV: ''
@@ -30,16 +40,21 @@ export const useMultiStepForm = (): TReturnProps => {
     validationSchema: purchaseValidationStepOne,
     validateOnBlur: true,
     onSubmit: (values) => {
-      console.log(values)
+      sendDataToServer().then(() => {
+        console.log(values)
+        setCurrentStep((prev) => prev + 1)
+      })
     }
   })
 
   const handleNextStep = useCallback(async () => {
     const errors = await formik.validateForm()
-    if (Object.keys(errors).length === 0) {
+    if (Object.keys(errors).length === 0 && currentStep === 1) {
+      formik.submitForm()
+    } else {
       setCurrentStep((prev) => prev + 1)
     }
-  }, [formik])
+  }, [formik, currentStep])
 
   return { formik, handleNextStep, currentStep }
 }

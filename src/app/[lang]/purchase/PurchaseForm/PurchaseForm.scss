@@ -22,11 +22,16 @@
   }
 }
 
-@include onTablet {
+@include onDesktop {
   .form-purchase {
+    &__content {
+      height: 100%;
+    }
+
     &__button {
       width: 200px;
       align-self: flex-start;
+      margin-top: auto;
     }
   }
 }
