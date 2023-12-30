@@ -21,6 +21,8 @@
 
 @include onDesktop {
   .price-bar {
+    margin-bottom: 0;
+
     &__price {
       @include typography(500, 36px, 43px);
     }

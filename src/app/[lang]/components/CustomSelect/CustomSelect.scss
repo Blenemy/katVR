@@ -86,6 +86,7 @@ $select-height-desktop: 47px;
   .custom-select {
     &__display {
       height: $select-height-desktop;
+      margin-bottom: 0;
     }
 
     &__arrow {
