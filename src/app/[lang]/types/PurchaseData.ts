@@ -1,5 +1,5 @@
 export type TPurchaseData = {
-  quantity: number,
+  quantity: number
   firstName: string
   lastName: string
   email: string
@@ -8,7 +8,7 @@ export type TPurchaseData = {
   shippingAdress2: string
   country: string
   city: string
-  cardNumber: string
+  cardNumber: string[]
   cardHolder: string
   expirationDate: string
   CVV: string

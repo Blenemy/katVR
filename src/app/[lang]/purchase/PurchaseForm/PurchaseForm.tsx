@@ -46,7 +46,7 @@ export const PurchaseForm: React.FC<PurchaseFormProps> = memo(
             <CustomSelect
               options={OPTIONS}
               variant="price"
-              name="country"
+              name="quantity"
               onChangeFunc={handleSelectChange('quantity')}
               value={data.quantity}
               label="Quantity"

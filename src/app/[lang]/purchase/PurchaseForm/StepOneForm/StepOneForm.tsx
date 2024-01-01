@@ -29,7 +29,8 @@ interface IStepOneFormProps {
 
 export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
   const handleSubmit = (values: Partial<TPurchaseData>) => {
-    next(values)
+    const newData = { ...values, quantity: data.quantity }
+    next(newData)
   }
 
   return (

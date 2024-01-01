@@ -2,10 +2,11 @@ import { CardInput } from '@/app/[lang]/components/CardInput/CardInput'
 import { CustomInput } from '@/app/[lang]/components/CustomInput/CustomInput'
 import { Form, Formik } from 'formik'
 
-import './StepTwoForm.scss'
 import { purchaseValidationStepTwo } from '@/app/[lang]/validationSchemas/purchaseValidationStepTwo'
 import { TPurchaseData } from '@/app/[lang]/types/PurchaseData'
 import { Button } from '@/app/[lang]/components/Button/Button'
+
+import './StepTwoForm.scss'
 
 interface IStepTwoFormProps {
   next: (newData: Partial<TPurchaseData>) => void
@@ -14,8 +15,8 @@ interface IStepTwoFormProps {
 
 export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data }) => {
   const handleSubmit = (values: Partial<TPurchaseData>) => {
-    next(values)
-    console.log('clown')
+    const newData = { ...values, quantity: data.quantity }
+    next(newData)
   }
 
   return (
@@ -24,10 +25,26 @@ export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data }) => {
       onSubmit={handleSubmit}
       validationSchema={purchaseValidationStepTwo}
     >
-      {({ values, handleChange, handleBlur, errors, touched }) => {
+      {({
+        values,
+        handleChange,
+        handleBlur,
+        errors,
+        touched,
+        setFieldValue
+      }) => {
+        const handleCardNumberChange = (newCardNumber: string[]) => {
+          setFieldValue('cardNumber', newCardNumber)
+        }
         return (
           <Form className="step-two-purchase-form">
-            <CardInput required label="Card Number" />
+            <CardInput
+              required
+              label="Card Number"
+              value={values.cardNumber}
+              onChange={handleCardNumberChange}
+              error={touched.cardNumber && errors.cardNumber}
+            />
             <CustomInput
               name="cardHolder"
               type="text"
