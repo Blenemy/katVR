@@ -1,22 +1,24 @@
 'use client'
 
-import { PurchaseForm } from '../../PurchaseForm/PurchaseForm'
 import { useMultiStepForm } from '@/app/[lang]/hooks/useMultiStepForm'
 import { PurchaseNavigation } from '../../PurchaseNavigation/PurchaseNavigation'
+import { PurchaseForm } from '../../PurchaseForm/PurchaseForm'
 
 import './PurchaseMainContent.scss'
 
 export const PurchaseMainContent = () => {
-  const { formik, handleNextStep, currentStep } = useMultiStepForm()
+  const { currentStep, currentElement, data, setData } =
+    useMultiStepForm()
 
   return (
     <section className="purchase__main main-purchase">
       <PurchaseNavigation currentStep={currentStep} />
       <PurchaseNavigation currentStep={currentStep} design="Desktop" />
       <PurchaseForm
-        formik={formik}
-        handleNextStep={handleNextStep}
         currentStep={currentStep}
+        currentFormElement={currentElement}
+        data={data}
+        setData={setData}
       />
     </section>
   )
