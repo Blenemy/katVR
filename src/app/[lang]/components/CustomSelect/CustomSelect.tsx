@@ -16,7 +16,7 @@ interface CustomSelectProps {
   variant: 'price' | 'formField'
   label: string
   name: string
-  classname?: string,
+  classname?: string
   onChangeFunc: (value: string) => void
   value: string | number
   error?: string | boolean
@@ -42,10 +42,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = memo(
     const handleOptionClick = (payloadValue: string) => {
       setSelectedValue(payloadValue)
       setIsOpen(false)
-
-      if (onChangeFunc) {
-        onChangeFunc(payloadValue)
-      }
+      onChangeFunc(payloadValue)
     }
 
     return (
