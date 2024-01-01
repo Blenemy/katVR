@@ -12,7 +12,7 @@ type TReturnProps = {
 
 export const useMultiStepForm = (): TReturnProps => {
   const [currentStep, setCurrentStep] = useState(0)
-  const [data, setData] = useState<TPurchaseData>({
+  const [initialData, setInitialData] = useState<TPurchaseData>({
     quantity: 1,
     firstName: '',
     lastName: '',
@@ -22,32 +22,41 @@ export const useMultiStepForm = (): TReturnProps => {
     shippingAdress2: '',
     country: 'Choose a country',
     city: 'Choose a city',
-    cardNumber: '',
+    cardNumber: ['', '', '', ''],
     cardHolder: '',
     expirationDate: '',
     CVV: ''
   })
 
   const handleNextStep = (newData: Partial<TPurchaseData>) => {
-    setData((prev) => ({ ...prev, ...newData }))
+    console.log('initialData:', initialData, 'newData:', newData)
+
+    setInitialData((prev) => ({ ...prev, ...newData }))
 
     setCurrentStep((prev) => prev + 1)
   }
 
   const handleSubmitForm = (newData: Partial<TPurchaseData>) => {
-    setData((prev) => ({ ...prev, ...newData }))
+    setInitialData((prev) => ({ ...prev, ...newData }))
   }
 
   const steps = [
-    <StepOneForm key={'first-step'} next={handleNextStep} data={data} />,
-    <StepTwoForm key={'second-step'} next={handleSubmitForm} data={data} />
+    <StepOneForm key={'first-step'} next={handleNextStep} data={initialData} />,
+    <StepTwoForm
+      key={'second-step'}
+      next={handleSubmitForm}
+      data={initialData}
+    />
   ]
-
-  console.log(data)
 
   const currentElement = steps[currentStep]
 
-  return { currentStep, currentElement, data, setData }
+  return {
+    currentStep,
+    currentElement,
+    data: initialData,
+    setData: setInitialData
+  }
 }
 
 // const sendDataToServer = (): Promise<void> => {

@@ -1,29 +1,32 @@
 'use client'
 
-import React, { ChangeEvent, KeyboardEvent, useRef, useState } from 'react'
+import React, { ChangeEvent, KeyboardEvent, useRef } from 'react'
 import cn from 'classnames'
 
 import './CardInput.scss'
 
 interface CardInputProps {
   required: boolean
-  error?: string | false | undefined
+  error?: string[] | false | undefined | string
+  value: string[]
+  onChange: (value: string[]) => void
   label: string
 }
 
 export const CardInput: React.FC<CardInputProps> = ({
   required,
   error,
-  label
+  label,
+  value,
+  onChange
 }) => {
-  const [cardNumber, setCardNumber] = useState(['', '', '', ''])
   const inputRefs = useRef<(HTMLInputElement | null)[]>([])
 
   const handleInputChange =
     (index: number) => (e: ChangeEvent<HTMLInputElement>) => {
-      const newCardNumber = [...cardNumber]
+      const newCardNumber = [...value]
       newCardNumber[index] = e.target.value
-      setCardNumber(newCardNumber)
+      onChange(newCardNumber)
 
       if (e.target.value.length === 4 && index < 3) {
         inputRefs.current[index + 1]?.focus()
@@ -32,10 +35,8 @@ export const CardInput: React.FC<CardInputProps> = ({
 
   const handleKeyDown =
     (index: number) => (e: KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === 'Backspace' && cardNumber[index] === '') {
-        if (index > 0) {
-          inputRefs.current[index - 1]?.focus()
-        }
+      if (e.key === 'Backspace' && value[index] === '' && index > 0) {
+        inputRefs.current[index - 1]?.focus()
       }
     }
 
@@ -46,7 +47,7 @@ export const CardInput: React.FC<CardInputProps> = ({
         {required ? '*' : ''}
       </p>
       <div className="card-input__container">
-        {cardNumber.map((num, index) => (
+        {value.map((num, index) => (
           <input
             key={index}
             ref={(el) => (inputRefs.current[index] = el)}
