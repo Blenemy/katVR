@@ -9,14 +9,14 @@ import { Button } from '@/app/[lang]/components/Button/Button'
 import './StepTwoForm.scss'
 
 interface IStepTwoFormProps {
-  next: (newData: Partial<TPurchaseData>) => void
+  next: (newData: Partial<TPurchaseData>, final: boolean) => void
   data: TPurchaseData
 }
 
 export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data }) => {
   const handleSubmit = (values: Partial<TPurchaseData>) => {
     const newData = { ...values, quantity: data.quantity }
-    next(newData)
+    next(newData, true)
   }
 
   return (
