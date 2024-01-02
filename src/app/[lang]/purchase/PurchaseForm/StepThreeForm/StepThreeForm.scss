@@ -1,10 +1,54 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
 .step-three-form {
+  display: flex;
+  flex-direction: column;
+
   &__title {
+    @include typography(400, 26px, 33px);
+    text-align: center;
+    margin-bottom: 16px;
   }
 
   &__description {
+    @include typography(400, 16px, 21px);
+    text-align: center;
+    margin-bottom: 30px;
   }
 
   &__button {
+    width: 100%;
+  }
+}
+
+@include onTablet {
+  .step-three-form {
+    &__title {
+      @include typography(900, 46px, 60px);
+      margin-bottom: 20px;
+    }
+
+    &__description {
+      @include typography(400, 18px, 24px);
+      margin-bottom: 50px;
+    }
+
+    &__button {
+      width: 458px;
+      align-self: center;
+    }
+  }
+}
+
+@include onDesktop {
+  .step-three-form {
+    &__title {
+      margin-bottom: 36px;
+    }
+
+    &__button {
+      width: 218px;
+    }
   }
 }

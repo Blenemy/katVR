@@ -1,11 +1,16 @@
 import { Button } from '@/app/[lang]/components/Button/Button'
+import { TextDecorator } from '@/app/[lang]/components/TextDecorator/TextDecorator'
+import { useParams, useRouter } from 'next/navigation'
 
 import './StepThreeForm.scss'
-import { TextDecorator } from '@/app/[lang]/components/TextDecorator/TextDecorator'
 
 export const StepThreeForm = () => {
+  const router = useRouter()
+  const params = useParams()
+
   const handleBackToHomePage = () => {
-    console.log('last form step')
+    const language = params.lang
+    router.push(`/${language}`)
   }
 
   return (
@@ -21,6 +26,7 @@ export const StepThreeForm = () => {
         text="Back to homepage"
         type="button"
         classname="step-three-form__button"
+        onClick={handleBackToHomePage}
       />
     </section>
   )
