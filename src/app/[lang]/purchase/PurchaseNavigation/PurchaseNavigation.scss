@@ -5,27 +5,11 @@
   display: flex;
   justify-content: space-between;
   margin: 0 -20px;
+  margin-bottom: 90px;
 }
 
 .desktop-navigation-bars {
   display: none;
-}
-
-@include onDesktop {
-  .navigation-bars {
-    display: none;
-  }
-
-  .desktop-navigation-bars {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 114px;
-
-    &__step {
-      color: #545454;
-      @include typography(500, 14px, 18px);
-    }
-  }
 }
 
 .desktop-active-step {
@@ -42,5 +26,28 @@
     border-radius: 50%;
     background-color: $contrast-blue;
     transform: translateX(-50%);
+  }
+}
+
+@include onTablet {
+  .navigation-bars {
+    margin-bottom: 180px;
+  }
+}
+
+@include onDesktop {
+  .navigation-bars {
+    display: none;
+  }
+
+  .desktop-navigation-bars {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 140px;
+
+    &__step {
+      color: #545454;
+      @include typography(500, 14px, 18px);
+    }
   }
 }
