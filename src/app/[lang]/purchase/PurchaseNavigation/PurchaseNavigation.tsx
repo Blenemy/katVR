@@ -2,9 +2,9 @@ import Image from 'next/image'
 
 import { UnderlinedComponent } from '../../components/UnderlinedComponent/UnderlinedComponent'
 import Logo from '../../../../../public/icons/Logo.svg'
+import cn from 'classnames'
 
 import './PurchaseNavigation.scss'
-import cn from 'classnames'
 
 interface IPurchaseNavigationProps {
   currentStep: number
