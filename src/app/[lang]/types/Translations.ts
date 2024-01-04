@@ -39,10 +39,17 @@ interface HelpNavbar {
   contacts: string[]
 }
 
+interface PurchaseHeader {
+  'place-order': string
+  pay: string
+  'order-complete': string
+}
+
 export interface Translations {
   hero: Header
   navbar: Navbar
   'control-bar': Controlbar
   'language-selector': Language
   help: HelpNavbar
+  'purchase-header': PurchaseHeader
 }

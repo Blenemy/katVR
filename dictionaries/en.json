@@ -41,5 +41,10 @@
       "Service Policy"
     ],
     "contacts": ["+86-0571-86105373", "global@katvr.com", "overseas@katvr.com"]
+  },
+  "purchase-header": {
+    "place-order": "Place Order",
+    "pay": "Pay",
+    "order-complete": "Order complete"
   }
 }
