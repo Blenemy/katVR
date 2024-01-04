@@ -15,7 +15,7 @@ const Purchase: React.FC<{ params: { lang: string } }> = async ({ params }) => {
       <Container>
         <div className="purchase__content">
           <PurchaseHeader />
-          <PurchaseMainContent />
+          <PurchaseMainContent t={t} />
         </div>
       </Container>
     </section>

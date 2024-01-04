@@ -5,15 +5,18 @@ import Logo from '../../../../../public/icons/Logo.svg'
 import cn from 'classnames'
 
 import './PurchaseNavigation.scss'
+import { Translations } from '../../types/Translations'
 
 interface IPurchaseNavigationProps {
   currentStep: number
   design?: 'Desktop' | 'Mobile'
+  t: Translations
 }
 
 export const PurchaseNavigation: React.FC<IPurchaseNavigationProps> = ({
   currentStep,
-  design = 'Mobile'
+  design = 'Mobile',
+  t
 }) => {
   const DesktopDesign = (
     <nav className="desktop-navigation-bars">
@@ -29,21 +32,21 @@ export const PurchaseNavigation: React.FC<IPurchaseNavigationProps> = ({
           'desktop-active-step': currentStep === 0
         })}
       >
-        Place Order
+        {t['purchase-header']['place-order']}
       </p>
       <p
         className={cn('desktop-navigation-bars__step', {
           'desktop-active-step': currentStep === 1
         })}
       >
-        Pay
+        {t['purchase-header'].pay}
       </p>
       <p
         className={cn('desktop-navigation-bars__step', {
           'desktop-active-step': currentStep === 2
         })}
       >
-        Order complete
+        {t['purchase-header']['order-complete']}
       </p>
     </nav>
   )
