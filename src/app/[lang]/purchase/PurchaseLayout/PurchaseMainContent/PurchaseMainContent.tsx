@@ -24,10 +24,10 @@ export const PurchaseMainContent: React.FC<IPurchaseMainContentProps> = ({
       <PurchaseNavigation currentStep={currentStep} design="Desktop" t={t} />
       {currentStep < 2 ? (
         <PurchaseForm
-          currentStep={currentStep}
           currentFormElement={currentElement}
           data={data}
           setData={setData}
+          t={t}
         />
       ) : (
         <StepThreeForm />

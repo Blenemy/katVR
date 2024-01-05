@@ -7,19 +7,20 @@ import { useAppSelector } from '@/lib/hooks'
 import { TPurchaseData } from '../../types/PurchaseData'
 
 import './PurchaseForm.scss'
+import { Translations } from '../../types/Translations'
 
 interface PurchaseFormProps {
-  currentStep: number
   currentFormElement: JSX.Element
   data: TPurchaseData
   setData: Dispatch<SetStateAction<TPurchaseData>>
+  t: Translations
 }
 
 const OPTIONS: string[] = ['1', '2', '3', '4']
 const BASE_PRICE: number = 1200
 
 export const PurchaseForm: React.FC<PurchaseFormProps> = memo(
-  ({ currentFormElement, data, setData }) => {
+  ({ currentFormElement, data, setData, t }) => {
     const { images, currentImage } = useAppSelector(
       (state) => state.heroImageSlice
     )
