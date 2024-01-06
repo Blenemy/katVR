@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import { StepOneForm } from '../purchase/PurchaseForm/StepOneForm/StepOneForm'
 import { TPurchaseData } from '../types/PurchaseData'
 import { StepTwoForm } from '../purchase/PurchaseForm/StepTwoForm/StepTwoForm'
+import { Translations } from '../types/Translations'
 
 type TReturnProps = {
   currentStep: number
@@ -20,7 +21,7 @@ const sendDataToServer = (someData: any): Promise<void> => {
   })
 }
 
-export const useMultiStepForm = (): TReturnProps => {
+export const useMultiStepForm = (t: Translations): TReturnProps => {
   const [currentStep, setCurrentStep] = useState(0)
   const [initialData, setInitialData] = useState<TPurchaseData>({
     quantity: 1,
@@ -53,8 +54,18 @@ export const useMultiStepForm = (): TReturnProps => {
   }
 
   const steps = [
-    <StepOneForm key={'first-step'} next={handleNextStep} data={initialData} />,
-    <StepTwoForm key={'second-step'} next={handleNextStep} data={initialData} />
+    <StepOneForm
+      key={'first-step'}
+      next={handleNextStep}
+      data={initialData}
+      t={t}
+    />,
+    <StepTwoForm
+      key={'second-step'}
+      next={handleNextStep}
+      data={initialData}
+      t={t}
+    />
   ]
 
   const currentElement = steps[currentStep]

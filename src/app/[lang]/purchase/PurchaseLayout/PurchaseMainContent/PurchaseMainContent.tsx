@@ -16,7 +16,7 @@ interface IPurchaseMainContentProps {
 export const PurchaseMainContent: React.FC<IPurchaseMainContentProps> = ({
   t
 }) => {
-  const { currentStep, currentElement, data, setData } = useMultiStepForm()
+  const { currentStep, currentElement, data, setData } = useMultiStepForm(t)
 
   return (
     <section className="purchase__main main-purchase">
@@ -30,7 +30,7 @@ export const PurchaseMainContent: React.FC<IPurchaseMainContentProps> = ({
           t={t}
         />
       ) : (
-        <StepThreeForm />
+        <StepThreeForm t={t} />
       )}
     </section>
   )
