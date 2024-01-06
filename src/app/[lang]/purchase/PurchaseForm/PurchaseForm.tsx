@@ -5,9 +5,9 @@ import { CustomSelect } from '../../components/CustomSelect/CustomSelect'
 import { PriceBar } from '../../components/PriceBar/PriceBar'
 import { useAppSelector } from '@/lib/hooks'
 import { TPurchaseData } from '../../types/PurchaseData'
+import { Translations } from '../../types/Translations'
 
 import './PurchaseForm.scss'
-import { Translations } from '../../types/Translations'
 
 interface PurchaseFormProps {
   currentFormElement: JSX.Element
@@ -16,7 +16,6 @@ interface PurchaseFormProps {
   t: Translations
 }
 
-const OPTIONS: string[] = ['1', '2', '3', '4']
 const BASE_PRICE: number = 1200
 
 export const PurchaseForm: React.FC<PurchaseFormProps> = memo(
@@ -45,14 +44,14 @@ export const PurchaseForm: React.FC<PurchaseFormProps> = memo(
           </div>
           <div className="main-purchase__price">
             <CustomSelect
-              options={OPTIONS}
+              options={t.form.quantity.qntSelect}
               variant="price"
               name="quantity"
               onChangeFunc={handleSelectChange('quantity')}
               value={data.quantity}
-              label="Quantity"
+              label={t.form.quantity.qntTitle}
             />
-            <PriceBar totalValue={totalValue} />
+            <PriceBar totalValue={totalValue} text={t.form.price} />
           </div>
         </div>
         <div className="main-purchase__form form-purchase">

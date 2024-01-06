@@ -1,12 +1,18 @@
 import { Button } from '@/app/[lang]/components/Button/Button'
 import { TextDecorator } from '@/app/[lang]/components/TextDecorator/TextDecorator'
 import { useParams, useRouter } from 'next/navigation'
+import { Translations } from '@/app/[lang]/types/Translations'
 
 import './StepThreeForm.scss'
 
-export const StepThreeForm = () => {
+interface IStepThreeFormProps {
+  t: Translations
+}
+
+export const StepThreeForm: React.FC<IStepThreeFormProps> = ({ t }) => {
   const router = useRouter()
   const params = useParams()
+  const { title, message, navigateHome } = t.form['last-page']
 
   const handleBackToHomePage = () => {
     const language = params.lang
@@ -16,14 +22,11 @@ export const StepThreeForm = () => {
   return (
     <section className="step-three-form">
       <h2 className="step-three-form__title">
-        Thank you for <TextDecorator>your</TextDecorator> order!
+        {title[0]} <TextDecorator>{title[1]}</TextDecorator> {title[2]}
       </h2>
-      <p className="step-three-form__description">
-        Your order has been placed and is being processed. You will recive an
-        email with the order details
-      </p>
+      <p className="step-three-form__description">{message}</p>
       <Button
-        text="Back to homepage"
+        text={navigateHome}
         type="button"
         classname="step-three-form__button"
         onClick={handleBackToHomePage}

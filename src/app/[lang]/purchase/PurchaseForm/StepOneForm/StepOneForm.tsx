@@ -4,30 +4,28 @@ import { Button } from '@/app/[lang]/components/Button/Button'
 import { Form, Formik } from 'formik'
 import { TPurchaseData } from '@/app/[lang]/types/PurchaseData'
 import { purchaseValidationStepOne } from '@/app/[lang]/validationSchemas/purchaseValidationStepOne'
+import { Translations } from '@/app/[lang]/types/Translations'
 
 import './StepOneForm.scss'
-
-const OPTIONS_CONTRIES: string[] = [
-  'Ukraine',
-  'Poland',
-  'Great Britain',
-  'Canada',
-  'USA'
-]
-const OPTIONS_CITIES: string[] = [
-  'Kyiv',
-  'Warsaw',
-  'London',
-  'Ottawa',
-  'Washington'
-]
 
 interface IStepOneFormProps {
   next: (newData: Partial<TPurchaseData>) => void
   data: TPurchaseData
+  t: Translations
 }
 
-export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
+export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data, t }) => {
+  const {
+    firstName,
+    lastName,
+    email,
+    phone,
+    country,
+    city,
+    shippingAdress,
+    shippingAdress2
+  } = t.form.personalDetails
+
   const handleSubmit = (values: Partial<TPurchaseData>) => {
     const newData = { ...values, quantity: data.quantity }
     next(newData)
@@ -58,7 +56,7 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
               type="text"
               required
               id="firstName"
-              label="First Name"
+              label={firstName}
               onChangeFunc={handleChange}
               onBlur={handleBlur}
               value={values.firstName}
@@ -70,7 +68,7 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
               type="text"
               required
               id="lastName"
-              label="Last Name"
+              label={lastName}
               onChangeFunc={handleChange}
               onBlur={handleBlur}
               value={values.lastName}
@@ -82,7 +80,7 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
               type="email"
               required
               id="email"
-              label="Email"
+              label={email}
               onChangeFunc={handleChange}
               onBlur={handleBlur}
               value={values.email}
@@ -94,7 +92,7 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
               type="tel"
               required
               id="phone"
-              label="PhoneNumber"
+              label={phone}
               onChangeFunc={handleChange}
               onBlur={handleBlur}
               value={values.phone}
@@ -102,9 +100,9 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
               classname="step-one-purchase-form__field"
             />
             <CustomSelect
-              options={OPTIONS_CONTRIES}
+              options={t.form.countries}
               variant="formField"
-              label="Country*"
+              label={country}
               name="country"
               onChangeFunc={handleSelectChange('country')}
               value={values.country}
@@ -112,9 +110,9 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
               classname="step-one-purchase-form__field"
             />
             <CustomSelect
-              options={OPTIONS_CITIES}
+              options={t.form.cities}
               variant="formField"
-              label="City*"
+              label={city}
               name="city"
               onChangeFunc={handleSelectChange('city')}
               value={values.city}
@@ -126,7 +124,7 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
               type="text"
               required
               id="shippingAdress"
-              label="Shipping Adress"
+              label={shippingAdress}
               onChangeFunc={handleChange}
               onBlur={handleBlur}
               value={values.shippingAdress}
@@ -137,7 +135,7 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
               name="shippingAdress2"
               type="text"
               id="shippingAdress2"
-              label="Shipping Adress 2"
+              label={shippingAdress2}
               required={false}
               onChangeFunc={handleChange}
               onBlur={handleBlur}
@@ -147,7 +145,7 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data }) => {
             />
             <Button
               type="submit"
-              text="Next page"
+              text={t.form['submitBtn-page-one']}
               classname="form-purchase__button"
             />
           </Form>

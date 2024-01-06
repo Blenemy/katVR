@@ -6,14 +6,20 @@ import { purchaseValidationStepTwo } from '@/app/[lang]/validationSchemas/purcha
 import { TPurchaseData } from '@/app/[lang]/types/PurchaseData'
 import { Button } from '@/app/[lang]/components/Button/Button'
 
+import { Translations } from '@/app/[lang]/types/Translations'
+
 import './StepTwoForm.scss'
 
 interface IStepTwoFormProps {
   next: (newData: Partial<TPurchaseData>, final: boolean) => void
   data: TPurchaseData
+  t: Translations
 }
 
-export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data }) => {
+export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data, t }) => {
+  const { CVV, expirationDate, cardHolderName, cardNumber } =
+    t.form.personalDetails
+
   const handleSubmit = (values: Partial<TPurchaseData>) => {
     const newData = { ...values, quantity: data.quantity }
     next(newData, true)
@@ -40,7 +46,7 @@ export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data }) => {
           <Form className="step-two-purchase-form">
             <CardInput
               required
-              label="Card Number"
+              label={cardNumber}
               value={values.cardNumber}
               onChange={handleCardNumberChange}
               error={touched.cardNumber && errors.cardNumber}
@@ -50,7 +56,7 @@ export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data }) => {
               type="text"
               required
               id="cardHolder"
-              label="Card Holder Name"
+              label={cardHolderName}
               onChangeFunc={handleChange}
               onBlur={handleBlur}
               value={values.cardHolder}
@@ -65,7 +71,7 @@ export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data }) => {
                 inputType="expiration-date"
                 placeholder="MM / YY"
                 id="expirationDate"
-                label="Expiration Date"
+                label={expirationDate}
                 onChangeFunc={handleChange}
                 onBlur={handleBlur}
                 value={values.expirationDate}
@@ -77,7 +83,7 @@ export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data }) => {
                 required
                 placeholder="000"
                 id="CVV"
-                label="CVV"
+                label={CVV}
                 onChangeFunc={handleChange}
                 onBlur={handleBlur}
                 value={values.CVV}
@@ -86,7 +92,7 @@ export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data }) => {
             </section>
             <Button
               type="submit"
-              text="Purchase"
+              text={t.form['submitBtn-page-two']}
               classname="form-purchase__button"
             />
           </Form>
