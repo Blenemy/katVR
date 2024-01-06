@@ -46,5 +46,35 @@
     "place-order": "Realizar pedido",
     "pay": "Pagar",
     "order-complete": "Pedido completado"
+  },
+  "form": {
+    "personalDetails": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo Electrónico",
+      "phone": "Número de Teléfono",
+      "country": "País*",
+      "city": "Ciudad*",
+      "shippingAdress": "Dirección de Envío",
+      "shippingAdress2": "Dirección de Envío 2",
+      "cardNumber": "Número de Tarjeta",
+      "cardHolderName": "Nombre del Titular de la Tarjeta",
+      "expirationDate": "Fecha de Expiración",
+      "CVV": "CVV"
+    },
+    "last-page": {
+      "title": ["Gracias por", "tu", "pedido!"],
+      "message": "Tu pedido ha sido realizado y está siendo procesado. Recibirás un correo electrónico con los detalles del pedido",
+      "navigateHome": "Volver a la página principal"
+    },
+    "submitBtn-page-one": "Siguiente página",
+    "submitBtn-page-two": "Comprar",
+    "countries": ["Ucrania", "Polonia", "Gran Bretaña", "Canadá", "EE. UU."],
+    "cities": ["Kiev", "Varsovia", "Londres", "Ottawa", "Washington"],
+    "quantity": {
+      "qntTitle": "Cantidad",
+      "qntSelect": ["1", "2", "3", "4"]
+    },
+    "price": "Precio"
   }
 }

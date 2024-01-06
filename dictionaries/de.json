@@ -46,5 +46,35 @@
     "place-order": "Bestellung aufgeben",
     "pay": "Zahlen",
     "order-complete": "Bestellung abgeschlossen"
+  },
+  "form": {
+    "personalDetails": {
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefonnummer",
+      "country": "Land*",
+      "city": "Stadt*",
+      "shippingAdress": "Lieferadresse",
+      "shippingAdress2": "Lieferadresse 2",
+      "cardNumber": "Kartennummer",
+      "cardHolderName": "Karteninhaber",
+      "expirationDate": "Ablaufdatum",
+      "CVV": "CVV"
+    },
+    "last-page": {
+      "title": ["Danke für", "Ihre", "Bestellung!"],
+      "message": "Ihre Bestellung wurde aufgenommen und wird bearbeitet. Sie erhalten eine E-Mail mit den Bestelldetails",
+      "navigateHome": "Zur Startseite zurückkehren"
+    },
+    "submitBtn-page-one": "Nächste Seite",
+    "submitBtn-page-two": "Kaufen",
+    "countries": ["Ukraine", "Polen", "Großbritannien", "Kanada", "USA"],
+    "cities": ["Kiew", "Warschau", "London", "Ottawa", "Washington"],
+    "quantity": {
+      "qntTitle": "Menge",
+      "qntSelect": ["1", "2", "3", "4"]
+    },
+    "price": "Preis"
   }
 }

@@ -46,5 +46,41 @@
     "place-order": "Passer la commande",
     "pay": "Payer",
     "order-complete": "Commande complète"
+  },
+  "form": {
+    "personalDetails": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email",
+      "phone": "Numéro de téléphone",
+      "country": "Pays*",
+      "city": "Ville*",
+      "shippingAdress": "Adresse de livraison",
+      "shippingAdress2": "Adresse de livraison 2",
+      "cardNumber": "Numéro de carte",
+      "cardHolderName": "Nom du titulaire",
+      "expirationDate": "Date d'expiration",
+      "CVV": "CVV"
+    },
+    "last-page": {
+      "title": ["Merci pour", "votre", "commande !"],
+      "message": "Votre commande a été passée et est en cours de traitement. Vous recevrez un email avec les détails de la commande",
+      "navigateHome": "Retour à la page d'accueil"
+    },
+    "submitBtn-page-one": "Page suivante",
+    "submitBtn-page-two": "Acheter",
+    "countries": [
+      "Ukraine",
+      "Pologne",
+      "Grande-Bretagne",
+      "Canada",
+      "États-Unis"
+    ],
+    "cities": ["Kiev", "Varsovie", "Londres", "Ottawa", "Washington"],
+    "quantity": {
+      "qntTitle": "Quantité",
+      "qntSelect": ["1", "2", "3", "4"]
+    },
+    "price": "Prix"
   }
 }
