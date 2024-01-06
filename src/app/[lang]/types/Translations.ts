@@ -1,4 +1,4 @@
-interface Header {
+interface IHeader {
   title: string
   textDecorator: string
   subtitle: string
@@ -6,7 +6,7 @@ interface Header {
   button: string
 }
 
-interface Navbar {
+interface INavbar {
   about: string
   tech: string
   benefits: string
@@ -16,7 +16,7 @@ interface Navbar {
   help: string
 }
 
-interface Controlbar {
+interface IControlbar {
   faq: string
   help: string
   'more-btn': string
@@ -24,14 +24,14 @@ interface Controlbar {
   next: string
 }
 
-interface Language {
+interface ILanguage {
   english: string
   german: string
   spanish: string
   french: string
 }
 
-interface HelpNavbar {
+interface IHelpNavbar {
   title: string[]
   intro: string
   contactMessage: string[]
@@ -39,17 +39,54 @@ interface HelpNavbar {
   contacts: string[]
 }
 
-interface PurchaseHeader {
+interface IPurchaseHeader {
   'place-order': string
   pay: string
   'order-complete': string
 }
 
+interface IFormPersonalDetails {
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  country: string
+  city: string
+  shippingAdress: string
+  shippingAdress2: string
+  cardNumber: string
+  cardHolderName: string
+  expirationDate: string
+  CVV: string
+}
+
+interface IFormLastPage {
+  title: string[]
+  message: string
+  navigateHome: string
+}
+
+interface IQuantitySelect {
+  qntTitle: string
+  qntSelect: string[]
+}
+
+interface IForm {
+  personalDetails: IFormPersonalDetails
+  'last-page': IFormLastPage
+  'submitBtn-page-one': string
+  'submitBtn-page-two': string
+  countries: string[]
+  cities: string[]
+  quantity: IQuantitySelect
+  price: string
+}
 export interface Translations {
-  hero: Header
-  navbar: Navbar
-  'control-bar': Controlbar
-  'language-selector': Language
-  help: HelpNavbar
-  'purchase-header': PurchaseHeader
+  hero: IHeader
+  navbar: INavbar
+  'control-bar': IControlbar
+  'language-selector': ILanguage
+  help: IHelpNavbar
+  'purchase-header': IPurchaseHeader
+  form: IForm
 }
