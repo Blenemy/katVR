@@ -3,11 +3,10 @@
 import { useMultiStepForm } from '@/app/[lang]/hooks/useMultiStepForm'
 import { PurchaseNavigation } from '../../PurchaseNavigation/PurchaseNavigation'
 import { PurchaseForm } from '../../PurchaseForm/PurchaseForm'
-
 import { StepThreeForm } from '../../PurchaseForm/StepThreeForm/StepThreeForm'
+import { Translations } from '@/app/[lang]/types/Translations'
 
 import './PurchaseMainContent.scss'
-import { Translations } from '@/app/[lang]/types/Translations'
 
 interface IPurchaseMainContentProps {
   t: Translations
