@@ -7,6 +7,7 @@ import { StepThreeForm } from '../../PurchaseForm/StepThreeForm/StepThreeForm'
 import { Translations } from '@/app/[lang]/types/Translations'
 
 import './PurchaseMainContent.scss'
+import { usePathname, useRouter } from 'next/navigation'
 
 interface IPurchaseMainContentProps {
   t: Translations
@@ -16,6 +17,12 @@ export const PurchaseMainContent: React.FC<IPurchaseMainContentProps> = ({
   t
 }) => {
   const { currentStep, currentElement, data, setData } = useMultiStepForm(t)
+  const router = useRouter()
+  const pathname = usePathname()
+
+  const test = () => {
+    router.push(pathname + '?value=123')
+  }
 
   return (
     <section className="purchase__main main-purchase">
