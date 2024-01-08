@@ -50,4 +50,8 @@
       @include typography(500, 14px, 18px);
     }
   }
+
+  .desktop-active-step {
+    color: $contrast-blue;
+  }
 }
