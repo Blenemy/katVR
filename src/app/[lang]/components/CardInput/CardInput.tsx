@@ -1,7 +1,10 @@
 'use client'
+import Image from 'next/image'
 
 import React, { ChangeEvent, KeyboardEvent, useRef } from 'react'
 import cn from 'classnames'
+
+import visaImage from '../../../../../public/icons/visa.svg'
 
 import './CardInput.scss'
 
@@ -63,6 +66,13 @@ export const CardInput: React.FC<CardInputProps> = ({
             onKeyDown={handleKeyDown(index)}
           />
         ))}
+        <Image
+          alt="visa"
+          src={visaImage}
+          height={34}
+          width={54}
+          className="card-input__visa-image"
+        />
       </div>
     </div>
   )

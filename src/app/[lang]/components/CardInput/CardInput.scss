@@ -30,8 +30,27 @@
       outline: none;
     }
   }
+
+  &__visa-image {
+    display: none;
+  }
 }
 
 .card-input-error {
   border-color: orangered;
+}
+
+@include onTablet {
+  .card-input {
+    &__field {
+      letter-spacing: 10px;
+
+      &::placeholder {
+        letter-spacing: 10px;
+      }
+    }
+    &__visa-image {
+      display: block;
+    }
+  }
 }
