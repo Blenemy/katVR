@@ -13,9 +13,14 @@
   }
 }
 
+@include onTablet {
+  .step-two-purchase-form {
+    gap: 60px;
+  }
+}
+
 @include onDesktop {
   .step-two-purchase-form {
-    gap: 40px;
     margin-bottom: 0;
 
     &__credentials {
