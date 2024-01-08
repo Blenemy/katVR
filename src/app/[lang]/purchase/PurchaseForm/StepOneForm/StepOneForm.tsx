@@ -51,98 +51,100 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data, t }) => {
 
         return (
           <Form className="step-one-purchase-form">
-            <CustomInput
-              name="firstName"
-              type="text"
-              required
-              id="firstName"
-              label={firstName}
-              onChangeFunc={handleChange}
-              onBlur={handleBlur}
-              value={values.firstName}
-              error={touched.firstName && errors.firstName}
-              classname="step-one-purchase-form__field"
-            />
-            <CustomInput
-              name="lastName"
-              type="text"
-              required
-              id="lastName"
-              label={lastName}
-              onChangeFunc={handleChange}
-              onBlur={handleBlur}
-              value={values.lastName}
-              error={touched.lastName && errors.lastName}
-              classname="step-one-purchase-form__field"
-            />
-            <CustomInput
-              name="email"
-              type="email"
-              required
-              id="email"
-              label={email}
-              onChangeFunc={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-              error={touched.email && errors.email}
-              classname="step-one-purchase-form__field"
-            />
-            <CustomInput
-              name="phone"
-              type="tel"
-              required
-              id="phone"
-              label={phone}
-              onChangeFunc={handleChange}
-              onBlur={handleBlur}
-              value={values.phone}
-              error={touched.phone && errors.phone}
-              classname="step-one-purchase-form__field"
-            />
-            <CustomSelect
-              options={t.form.countries}
-              variant="formField"
-              label={country}
-              name="country"
-              onChangeFunc={handleSelectChange('country')}
-              value={values.country}
-              error={touched.country && errors.country}
-              classname="step-one-purchase-form__field"
-            />
-            <CustomSelect
-              options={t.form.cities}
-              variant="formField"
-              label={city}
-              name="city"
-              onChangeFunc={handleSelectChange('city')}
-              value={values.city}
-              error={touched.city && errors.city}
-              classname="step-one-purchase-form__field"
-            />
-            <CustomInput
-              name="shippingAdress"
-              type="text"
-              required
-              id="shippingAdress"
-              label={shippingAdress}
-              onChangeFunc={handleChange}
-              onBlur={handleBlur}
-              value={values.shippingAdress}
-              error={touched.shippingAdress && errors.shippingAdress}
-              classname="step-one-purchase-form__field"
-            />
-            <CustomInput
-              name="shippingAdress2"
-              type="text"
-              id="shippingAdress2"
-              label={shippingAdress2}
-              required={false}
-              onChangeFunc={handleChange}
-              onBlur={handleBlur}
-              value={values.shippingAdress2}
-              error={touched.shippingAdress2 && errors.shippingAdress2}
-              classname="step-one-purchase-form__field"
-            />
+            <div className="step-one-purchase-form__wrapper">
+              <CustomInput
+                name="firstName"
+                type="text"
+                required
+                id="firstName"
+                label={firstName}
+                onChangeFunc={handleChange}
+                onBlur={handleBlur}
+                value={values.firstName}
+                error={touched.firstName && errors.firstName}
+                classname="step-one-purchase-form__field"
+              />
+              <CustomInput
+                name="lastName"
+                type="text"
+                required
+                id="lastName"
+                label={lastName}
+                onChangeFunc={handleChange}
+                onBlur={handleBlur}
+                value={values.lastName}
+                error={touched.lastName && errors.lastName}
+                classname="step-one-purchase-form__field"
+              />
+              <CustomInput
+                name="email"
+                type="email"
+                required
+                id="email"
+                label={email}
+                onChangeFunc={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                error={touched.email && errors.email}
+                classname="step-one-purchase-form__field"
+              />
+              <CustomInput
+                name="phone"
+                type="tel"
+                required
+                id="phone"
+                label={phone}
+                onChangeFunc={handleChange}
+                onBlur={handleBlur}
+                value={values.phone}
+                error={touched.phone && errors.phone}
+                classname="step-one-purchase-form__field"
+              />
+              <CustomSelect
+                options={t.form.countries}
+                variant="formField"
+                label={country}
+                name="country"
+                onChangeFunc={handleSelectChange('country')}
+                value={values.country}
+                error={touched.country && errors.country}
+                classname="step-one-purchase-form__field"
+              />
+              <CustomSelect
+                options={t.form.cities}
+                variant="formField"
+                label={city}
+                name="city"
+                onChangeFunc={handleSelectChange('city')}
+                value={values.city}
+                error={touched.city && errors.city}
+                classname="step-one-purchase-form__field"
+              />
+              <CustomInput
+                name="shippingAdress"
+                type="text"
+                required
+                id="shippingAdress"
+                label={shippingAdress}
+                onChangeFunc={handleChange}
+                onBlur={handleBlur}
+                value={values.shippingAdress}
+                error={touched.shippingAdress && errors.shippingAdress}
+                classname="step-one-purchase-form__field"
+              />
+              <CustomInput
+                name="shippingAdress2"
+                type="text"
+                id="shippingAdress2"
+                label={shippingAdress2}
+                required={false}
+                onChangeFunc={handleChange}
+                onBlur={handleBlur}
+                value={values.shippingAdress2}
+                error={touched.shippingAdress2 && errors.shippingAdress2}
+                classname="step-one-purchase-form__field"
+              />
+            </div>
             <Button
               type="submit"
               text={t.form['submitBtn-page-one']}
