@@ -1,5 +1,6 @@
 import { HTMLAttributes, ChangeEventHandler, ChangeEvent, memo } from 'react'
 import cn from 'classnames'
+
 import './CustomInput.scss'
 
 interface CustomInputProps extends HTMLAttributes<HTMLInputElement> {
