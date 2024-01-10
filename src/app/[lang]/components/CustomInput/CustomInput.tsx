@@ -55,11 +55,7 @@ export const CustomInput: React.FC<CustomInputProps> = memo(
           })}
           htmlFor={id}
         >
-          {error
-            ? `Please, fill your ${label}*`
-            : required
-              ? `${label}*`
-              : label}
+          {error ? `${error}` : required ? `${label}*` : label}
         </label>
         <input
           name={name}
