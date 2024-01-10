@@ -10,7 +10,7 @@ export const HeaderRightSide = ({ t }: { t: Translations }) => {
   const pathname = usePathname()
 
   const GoToPurchasePage = () => {
-    router.push(`${pathname}/purchase`)
+    router.push(`${pathname}/purchase?step=1`)
   }
 
   return (
