@@ -29,21 +29,21 @@ export const PurchaseNavigation: React.FC<IPurchaseNavigationProps> = ({
       />
       <p
         className={cn('desktop-navigation-bars__step', {
-          'desktop-active-step': currentStep === 0
+          'desktop-active-step': currentStep === 1
         })}
       >
         {t['purchase-header']['place-order']}
       </p>
       <p
         className={cn('desktop-navigation-bars__step', {
-          'desktop-active-step': currentStep === 1
+          'desktop-active-step': currentStep === 2
         })}
       >
         {t['purchase-header'].pay}
       </p>
       <p
         className={cn('desktop-navigation-bars__step', {
-          'desktop-active-step': currentStep === 2
+          'desktop-active-step': currentStep === 3
         })}
       >
         {t['purchase-header']['order-complete']}
