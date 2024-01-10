@@ -9,7 +9,7 @@ import { Translations } from '@/app/[lang]/types/Translations'
 import './StepOneForm.scss'
 
 interface IStepOneFormProps {
-  next: (newData: Partial<TPurchaseData>) => void
+  next: (newData: TPurchaseData) => void
   data: TPurchaseData
   t: Translations
 }
@@ -26,7 +26,7 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data, t }) => {
     shippingAdress2
   } = t.form.personalDetails
 
-  const handleSubmit = (values: Partial<TPurchaseData>) => {
+  const handleSubmit = (values: TPurchaseData) => {
     const newData = { ...values, quantity: data.quantity }
     next(newData)
   }
@@ -36,6 +36,7 @@ export const StepOneForm: React.FC<IStepOneFormProps> = ({ next, data, t }) => {
       initialValues={data}
       onSubmit={handleSubmit}
       validationSchema={purchaseValidationStepOne}
+      enableReinitialize
     >
       {({
         handleChange,

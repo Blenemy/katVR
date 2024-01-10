@@ -11,7 +11,7 @@ import { Translations } from '@/app/[lang]/types/Translations'
 import './StepTwoForm.scss'
 
 interface IStepTwoFormProps {
-  next: (newData: Partial<TPurchaseData>, final: boolean) => void
+  next: (newData: TPurchaseData, final: boolean) => void
   data: TPurchaseData
   t: Translations
 }
@@ -20,7 +20,7 @@ export const StepTwoForm: React.FC<IStepTwoFormProps> = ({ next, data, t }) => {
   const { CVV, expirationDate, cardHolderName, cardNumber } =
     t.form.personalDetails
 
-  const handleSubmit = (values: Partial<TPurchaseData>) => {
+  const handleSubmit = (values: TPurchaseData) => {
     const newData = { ...values, quantity: data.quantity }
     next(newData, true)
   }
