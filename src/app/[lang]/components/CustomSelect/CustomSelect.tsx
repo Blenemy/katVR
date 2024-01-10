@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, memo } from 'react'
+import { useState, useRef, memo, useEffect } from 'react'
 import Image from 'next/image'
 import cn from 'classnames'
 
@@ -35,6 +35,10 @@ export const CustomSelect: React.FC<CustomSelectProps> = memo(
   }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [selectedValue, setSelectedValue] = useState(value)
+
+    useEffect(() => {
+      setSelectedValue(value)
+    }, [value])
 
     const wrapperRef = useRef<HTMLDivElement>(null)
     useOutsideClick(wrapperRef, () => setIsOpen(false))
