@@ -1,13 +1,13 @@
 import { Dispatch, SetStateAction, memo } from 'react'
 import Image from 'next/image'
-
-import { CustomSelect } from '../../components/CustomSelect/CustomSelect'
-import { PriceBar } from '../../components/PriceBar/PriceBar'
 import { useAppSelector } from '@/lib/hooks'
-import { TPurchaseData } from '../../types/PurchaseData'
-import { Translations } from '../../types/Translations'
+
+import { TPurchaseData } from '@/app/[lang]/types/PurchaseData'
+import { Translations } from '@/app/[lang]/types/Translations'
 
 import './PurchaseForm.scss'
+import { CustomSelect } from '@/app/[lang]/components/CustomSelect/CustomSelect'
+import { PriceBar } from '@/app/[lang]/components/PriceBar/PriceBar'
 
 interface PurchaseFormProps {
   currentFormElement: JSX.Element

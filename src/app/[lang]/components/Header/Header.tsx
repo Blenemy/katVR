@@ -1,8 +1,9 @@
 import { Translations } from '@/app/[lang]/types/Translations'
 
-import './Header.scss'
 import { HeaderLeftSide } from './HeaderLeft/HeaderLeftSide'
 import { HeaderRightSide } from './HeaderRight/HeaderRightSide'
+
+import './Header.scss'
 
 export const Header = ({ t }: { t: Translations }) => {
   return (

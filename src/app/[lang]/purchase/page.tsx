@@ -1,7 +1,5 @@
 import { getDictionary } from '@/app/getDectionaries'
-
 import { Container } from '../components/Container/Container'
-
 import { PurchaseHeader } from './PurchaseLayout/PurchaseHeader/PurchaseHeader'
 import { PurchaseMainContent } from './PurchaseLayout/PurchaseMainContent/PurchaseMainContent'
 

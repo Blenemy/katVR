@@ -16,5 +16,9 @@
 @include onDesktop {
   .header-purchase {
     display: none;
+
+    &__hover {
+      cursor: pointer;
+    }
   }
 }

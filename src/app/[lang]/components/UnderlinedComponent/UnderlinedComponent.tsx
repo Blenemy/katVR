@@ -1,7 +1,8 @@
 import cn from 'classnames'
 
-import './UnderlinedComponent.scss'
 import { HTMLAttributes } from 'react'
+
+import './UnderlinedComponent.scss'
 
 interface UnderlinedComponentProps extends HTMLAttributes<HTMLDivElement> {
   text: string
@@ -12,7 +13,8 @@ interface UnderlinedComponentProps extends HTMLAttributes<HTMLDivElement> {
 export const UnderlinedComponent: React.FC<UnderlinedComponentProps> = ({
   text,
   active,
-  classes = ''
+  classes = '',
+  ...props
 }) => {
   return (
     <article
@@ -20,6 +22,7 @@ export const UnderlinedComponent: React.FC<UnderlinedComponentProps> = ({
         'underlined-active': active,
         [classes]: classes
       })}
+      {...props}
     >
       {text}
     </article>

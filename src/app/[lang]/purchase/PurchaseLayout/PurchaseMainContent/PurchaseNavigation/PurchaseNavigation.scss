@@ -1,5 +1,5 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+@import '../../../../styles/variables.scss';
 
 .navigation-bars {
   display: flex;
@@ -48,6 +48,10 @@
     &__step {
       color: #545454;
       @include typography(500, 14px, 18px);
+    }
+
+    &__logo {
+      cursor: pointer;
     }
   }
 

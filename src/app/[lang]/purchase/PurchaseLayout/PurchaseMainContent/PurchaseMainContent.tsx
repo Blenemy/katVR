@@ -1,10 +1,10 @@
 'use client'
 
 import { useMultiStepForm } from '@/app/[lang]/hooks/useMultiStepForm'
-import { PurchaseNavigation } from '../../PurchaseNavigation/PurchaseNavigation'
-import { PurchaseForm } from '../../PurchaseForm/PurchaseForm'
-import { StepThreeForm } from '../../PurchaseForm/StepThreeForm/StepThreeForm'
+import { PurchaseNavigation } from './PurchaseNavigation/PurchaseNavigation'
 import { Translations } from '@/app/[lang]/types/Translations'
+import { PurchaseForm } from './PurchaseForm/PurchaseForm'
+import { StepThreeForm } from './PurchaseForm/StepThreeForm/StepThreeForm'
 
 import './PurchaseMainContent.scss'
 

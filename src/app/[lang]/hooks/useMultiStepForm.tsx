@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 
 import { Dispatch, SetStateAction, useCallback, useState } from 'react'
-import { StepOneForm } from '../purchase/PurchaseForm/StepOneForm/StepOneForm'
 import { TPurchaseData } from '../types/PurchaseData'
-import { StepTwoForm } from '../purchase/PurchaseForm/StepTwoForm/StepTwoForm'
 import { Translations } from '../types/Translations'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { StepOneForm } from '../purchase/PurchaseLayout/PurchaseMainContent/PurchaseForm/StepOneForm/StepOneForm'
+import { StepTwoForm } from '../purchase/PurchaseLayout/PurchaseMainContent/PurchaseForm/StepTwoForm/StepTwoForm'
 
 type TReturnProps = {
   currentStep: number

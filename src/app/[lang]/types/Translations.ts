@@ -39,7 +39,7 @@ interface IHelpNavbar {
   contacts: string[]
 }
 
-interface IPurchaseHeader {
+export interface IPurchaseHeader {
   'place-order': string
   pay: string
   'order-complete': string
