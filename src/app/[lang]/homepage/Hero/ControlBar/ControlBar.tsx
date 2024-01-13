@@ -1,15 +1,16 @@
 'use client'
 
+import { useCallback, useState } from 'react'
+
 import { Translations } from '@/app/[lang]/types/Translations'
 import { MoreButton } from './MoreButton/MoreButton'
-import { Modal } from '../../Modal/Modal'
-
-import './ControlBar.scss'
-import { useCallback, useState } from 'react'
-import { FAQComponent } from '../../FAQ/FAQComponent'
 import { HelpMenu } from '../NavigationMenu/HelpMenu/HelpMenu'
 import { useAppDispatch } from '@/lib/hooks'
 import { nextImage, previousImage } from '@/lib/features/heroImageSlice'
+import { FAQComponent } from '@/app/[lang]/components/FAQ/FAQComponent'
+import { Modal } from '@/app/[lang]/components/Modal/Modal'
+
+import './ControlBar.scss'
 
 interface ControlBarProps {
   t: Translations

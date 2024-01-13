@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Translations } from '@/app/[lang]/types/Translations'
 
 import backImage from '../../../../../../../public/icons/arrow-back.svg'
-import { TextDecorator } from '../../../TextDecorator/TextDecorator'
+import { TextDecorator } from '@/app/[lang]/components/TextDecorator/TextDecorator'
 
 interface HelpMenuProps {
   t: Translations

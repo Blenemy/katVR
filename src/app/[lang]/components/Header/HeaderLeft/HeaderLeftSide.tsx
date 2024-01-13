@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import { LanguageDropdown } from '../../Hero/LanguageDropdown/LanguageDropdown'
 
 import logo from '../../../../../../public/icons/Logo.svg'
+import { LanguageDropdown } from '@/app/[lang]/homepage/Hero/LanguageDropdown/LanguageDropdown'
 
 export const HeaderLeftSide = () => {
   return (

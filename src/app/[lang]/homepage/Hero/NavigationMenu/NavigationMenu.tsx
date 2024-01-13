@@ -1,18 +1,19 @@
 'use client'
 
 import { useState } from 'react'
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
+
 import cn from 'classnames'
 import { toggleNavbar } from '@/lib/features/navbarSlice'
-import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { Translations } from '@/app/[lang]/types/Translations'
 
-import { FAQComponent } from '../../FAQ/FAQComponent'
 import { NavbarContentKey } from '@/app/[lang]/types/NavigationTypes'
 import { DefaultMenu } from './DefaultMenu/DefaultMenu'
 import { LangaugeMenu } from './LanguageMenu/LanguageMenu'
 import { HelpMenu } from './HelpMenu/HelpMenu'
 
 import './NavigationMenu.scss'
+import { FAQComponent } from '@/app/[lang]/components/FAQ/FAQComponent'
 
 interface NavigationMenuProps {
   t: Translations

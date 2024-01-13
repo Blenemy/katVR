@@ -2,8 +2,8 @@
 
 import { Translations } from '@/app/[lang]/types/Translations'
 import { Button } from '../../Button/Button'
-import { BurgerIcon } from '../../Hero/BurgerIcon/BurgerIcon'
 import { useRouter, usePathname } from 'next/navigation'
+import { BurgerIcon } from '@/app/[lang]/homepage/Hero/BurgerIcon/BurgerIcon'
 
 export const HeaderRightSide = ({ t }: { t: Translations }) => {
   const router = useRouter()

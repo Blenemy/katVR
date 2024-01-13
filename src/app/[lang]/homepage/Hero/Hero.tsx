@@ -1,11 +1,12 @@
 import { ControlBar } from './ControlBar/ControlBar'
-import { Container } from '../Container/Container'
 import { Translations } from '../../types/Translations'
 import { NavigationMenu } from './NavigationMenu/NavigationMenu'
 
-import './Hero.scss'
-import { Header } from '../Header/Header'
 import { HeroLayout } from './HeroLayout/HeroLayout'
+import { Header } from '../../components/Header/Header'
+import { Container } from '../../components/Container/Container'
+
+import './Hero.scss'
 
 interface HeaderProps {
   t: Translations
