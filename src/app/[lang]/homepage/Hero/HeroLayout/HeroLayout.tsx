@@ -1,10 +1,11 @@
 import { Translations } from '@/app/[lang]/types/Translations'
 import { HeroImage } from './HeroImage/HeroImage'
 
-import './HeroLayout.scss'
 import { TextDecorator } from '@/app/[lang]/components/TextDecorator/TextDecorator'
 import { PlayVideo } from '@/app/[lang]/components/PlayVideo/PlayVideo'
 import { Button } from '@/app/[lang]/components/Button/Button'
+
+import './HeroLayout.scss'
 
 export const HeroLayout = ({ t }: { t: Translations }) => {
   return (
